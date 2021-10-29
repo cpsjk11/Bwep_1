@@ -9,4 +9,10 @@
 	SELECT m_nick FROM mem_t
 	WHERE m_nick = #{no}
 </select>
+
+<!-- 회원가입 기능 -->
+<insert id="userAdd" parameterType="bwep.vo.MemVO">
+	INSERT INTO mem_t (m_nick, m_pw, m_gender)
+	values (#{m_nick}, #{m_pw}, #{m_gender})
+</insert>
 </mapper>

@@ -3,6 +3,7 @@ package bwep.dao;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import bwep.vo.MemVO;
 
@@ -18,5 +19,10 @@ public class MemDAO {
 		MemVO mvo = ss.selectOne("mem.overlap", m_nick);
 		
 		return mvo; 
+	}
+	
+	// 회원가입 기능!1
+	public int userAdd(MemVO mvo) {
+		return ss.insert("mem.userAdd", mvo);
 	}
 }
