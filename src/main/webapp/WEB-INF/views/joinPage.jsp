@@ -65,11 +65,13 @@
         
         <%-- ********************* 회원가입 폼 ********************** --%>
         <div class="u-form u-form-1">
-          <form action="#" method="POST" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 15px;" source="custom" name="joinForm">
+          <form action="membership_ok.my" method="POST" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 15px;" source="custom" name="joinForm">
             <div class="u-form-group u-form-name">
               <label for="name-6797" class="u-label u-label-1">아이디</label>
               <input type="text" placeholder="아이디를 입력해주세요." id="nick" name="m_nick" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="">
               <input type="hidden" id="value"/> 
+              <input type="hidden" id="value2"/> 
+              <input type="hidden" id="value3"/> 
               <span id="id_checkBox" class="checkBox"></span>
             </div>
             <div class="u-form-group">
@@ -85,10 +87,10 @@
             <div class="u-form-group u-form-select u-form-group-4">
               <label for="select-1fa4" class="u-label u-label-4">성별</label>
               <div class="u-form-select-wrapper">
-                <select id="select-1fa4" name="searchType" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="required">
-                  <option value="성별을 선택해주세요">성별을 선택해주세요</option>
-                  <option value="남성">남성</option>
-                  <option value="여성">여성</option>
+                <select id=m_gender name="m_gender" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="required">
+                  <option value="1">성별을 선택해주세요</option>
+                  <option value="Man">남성</option>
+                  <option value="Woman">여성</option>
                 </select>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
               </div>
@@ -101,6 +103,7 @@
             <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
             <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
             <input type="hidden" value="" name="recaptchaResponse">
+            <button type="button" onclick="send(this.form)">연습</button>
           </form>
           <%-- ************** 회원가입 폼 ****************  --%>
           
@@ -167,8 +170,10 @@
 					type:"post",
 					dataType:"json",
 				}).done(function(data){
-					if(data.overlap == 1)
+					if(data.overlap == 1){
 						$("#id_checkBox").html("사용가능").css("color","#12b886");
+						$("#value").val("");
+					}
 					else{
 						$("#id_checkBox").html("중복").css("color","red");
 						$("#value").val("1"); // 아이디가 중복됬을때	
@@ -196,15 +201,16 @@
 				}).done(function(data){
 					if(data.check == 1){
 						$("#pw_checkBox").html("문자열의 길이가 짧습니다.").css("color","red");
-						$("#value").val("2"); // 비밀번호가 올바르지 않을때	
+						$("#value2").val("2"); // 비밀번호가 올바르지 않을때	
 					}
 					else if(data.check == 2){
 						$("#pw_checkBox").html("사용 가능한 비밀번호 입니다.").css("color","#12b886");
 						$("#repw_checkBox").val("비밀번호를 확인해주세요.").css("color","red");	
+						$("#value2").val("");
 					}
 					else if(data.check == 3){
 						$("#pw_checkBox").html("지정한 특수기호가 없습니다.").css("color","red");
-						$("#value").val("2"); // 비밀번호가 올바르지 않을때	
+						$("#value2").val("2"); // 비밀번호가 올바르지 않을때	
 					}
 				}).fail(function(err){
 					
@@ -219,13 +225,16 @@
 		var pw = $("#s_pw").val();
 		var repw = $("#message-6797").val();
 		// 비교해서 서로의 값이 같다면 일치라는 문장을 넣어주자!
-		if(repw == pw)
+		if(repw == pw){
 			$("#repw_checkBox").html("비밀번호가 일치합니다.").css("color","#12b886");
+			$("#value3").val("");
+		}
 		else if(repw != pw){
 			$("#repw_checkBox").html("비밀번호가 일치하지 않습니다.").css("color","red");
-			$("#value").val("3"); // 비밀번호재확인이 올바르지 않을때
+			$("#value3").val("3"); // 비밀번호재확인이 올바르지 않을때
 			
 		}
+	
 	});
 		
 		
@@ -235,22 +244,20 @@
     
     
 	function send(frm){
-		
 		// 위에서 히든으로 숨긴 지정한 문자열들이 있으면 회원가입을 시키지 않고 리턴한다.
-		
-		if($("#value").val().trim() == 1){
+		if($("#value").val() == 1){
 			alert("닉네임이 중복되었습니다.");
 			$("#nick").val("");
 			$("#nick").focus();
 			return;
 		}
-		if($("#value").val().trim() == 2){
+		if($("#value2").val() == 2){
 			alert("비밀번호를 확인해주세요.");
-			$("#pw").val("");
-			$("#pw").focus();
+			$("#s_pw").val("");
+			$("#s_pw").focus();
 			return;
 		}
-		if($("#value").val().trim() == 3){
+		if($("#value3").val() == 3){
 			alert("비밀번호 재확인이 일치하지 않습니다.");
 			$("#reqw").val("");
 			$("#reqw").focus();
@@ -262,19 +269,25 @@
 			$("#nick").focus();
 			return;
 		}
-		if($("#u_pw").val().trim().length < 1){
+		if($("#s_pw").val().trim().length < 1){
 			alert("비밀번호를 입력해주세요");
-			$("#u_pw").val("");
-			$("#u_pw").focus();
+			$("#s_pw").val("");
+			$("#s_pw").focus();
 			return;
 		}
-		if($("#u_pws").val().trim().length < 1){
+		if($("#message-6797").val().trim().length < 1){
 			alert("비밀번호재확인을 입력해주세요");
-			$("#u_pws").val("");
-			$("#u_pws").focus();
+			$("#message-6797").val("");
+			$("#message-6797").focus();
+			return;
+		}
+		if($("#m_gender").val() == 1 ){
+			alert("성별을 선택해주세요");
 			return;
 		}
 		
+		
+		alert("가입성공!!");
 		// 회원가입!!
 		frm.submit();
 	}

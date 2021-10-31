@@ -62,9 +62,9 @@ public class MembershipController {
 		int cnt = m_dao.userAdd(vo);
 		
 		if(cnt > 0)
-			mv.setViewName("index");
+			mv.setViewName("membership"); // 회원가입 성공시 원래 기존의 페이지 이동!!
 		else
-			mv.setViewName("redirect:/membership.my");
+			mv.setViewName("redirect:/joinPage.my");
 		
 		return mv;
 	}

@@ -69,11 +69,11 @@
               <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
                   <label for="username-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="아이디를 입력해주세요" id="username-708d" name="username" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="text" placeholder="닉네임을 입력해주세요" id="nick" name="username" class="u-grey-5 u-input u-input-rectangle" required="">
                 </div>
                 <div class="u-form-group u-form-password">
                   <label for="password-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="비밀번호를 입력해주세요" id="password-708d" name="password" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="password" placeholder="비밀번호를 입력해주세요" id="pwd" name="password" class="u-grey-5 u-input u-input-rectangle" required="">
                 </div>
                 <div class="u-form-checkbox u-form-group u-form-group-3">
                   <input type="checkbox" id="checkbox-708d" name="remember" value="On">
@@ -89,7 +89,7 @@
               </form>
             </div>
             <a href="joinPage.my" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">회원가입</a>
-            <a href="https://nicepage.com/website-templates" class="u-btn u-btn-round u-button-style u-custom-color-7 u-custom-font u-heading-font u-hover-custom-color-8 u-radius-50 u-text-body-alt-color u-btn-3">로그인</a>
+            <a href="javascript:login()" class="u-btn u-btn-round u-button-style u-custom-color-7 u-custom-font u-heading-font u-hover-custom-color-8 u-radius-50 u-text-body-alt-color u-btn-3">로그인</a>
           </div>
         </div>
             <%-- ************** 로그인 폼 끝 ***************** --%>
@@ -156,99 +156,39 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
-	$(function(){
-		/* 버튼클릭시 상단으로 이동 효과 */
-		const top = 0;
-		const speed = 500;
-		$("#top_btn").bind("click",function(){
-			$('html, body').animate({
-			      scrollTop: top 
-			   }, speed);
-		})
-		/* 버튼클릭시 상단으로 이동 효과 */
-		
-		var nick = $("#nick").val();
-		var pw = $("#s_pw").val();
-		
-		if(nick.trim().length == 0)
-			$("#box").html("");
-		if(pw.trim().length == 0)
-			$("#box2").html("");
-		
-		 $("#nick").bind("keyup",function(){
-			// 이제 여기서 2글자 이상 누를시 서버로 비동기식 통신시작 아이디 값 비교
-			if(nick.trim().length > 1){
-				$.ajax({
-					url:"memberships.my",
-					data:"m_nick="+encodeURIComponent(nick),
-					type:"post",
-					dataType:"json",
-				}).done(function(data){
-					console.log("성공");
-					if(data.overlap == 1)
-						$("#box").html("사용가능");
-					else
-						$("#box").html("중복");
-				}).fail(function(err){
-					
-				});
-			}else if(nick.trim().length < 1){
-				// 사용자가 입력한 id값의 길이가 4자 미민이면 아이디가
-				// box인 요소의 내용을 없앤다.
-				$("#box").html("닉네임의 길이가 올바르지 않습니다.");
-			}
-		}); 
-		
-		$("#s_pw").bind("keyup",function(){
-			console.log(pw);
-			if(pw.trim().length > 0){
-				$.ajax({
-					url:"password.my",
-					data:"m_pw="+encodeURIComponent(pw),
-					type:"post",
-					dataType:"json",
-				}).done(function(data){
-					if(data.check == 1)
-						$("#box2").html("문자열의 길이가 짧습니다.");
-					else if(data.check == 2)
-						$("#box2").html("사용 가능한 비밀번호 입니다.");
-					else if(data.check == 3){
-						$("#box2").html("지정한 특수기호가 없습니다.");
-						
-					}
-				}).fail(function(err){
-					
-				});
-			}else if(pw.trim().length == 0){
-				$("#box2").html("");
-			}
-		});
-		
-		
-	});
 	
-	function send(frm){
-		if($("#nick").val().trim().length < 1){
-			alert("닉네임을 입력해주세요");
+	function login(frm){
+		// 비동기식을 이용한 로그인!!
+		var id = $("#nick").val();
+		var pwd = $("#pwd").val();
+		
+		if(id.trim().length <= 0){
+			alert("닉네임을 입력해주세요.");
 			$("#nick").val("");
 			$("#nick").focus();
 			return;
 		}
-		if($("#u_pw").val().trim().length < 1){
-			alert("비밀번호를 입력해주세요");
-			$("#u_pw").val("");
-			$("#u_pw").focus();
-			return;
-		}
-		if($("#u_pws").val().trim().length < 1){
-			alert("비밀번호재확인을 입력해주세요");
-			$("#u_pws").val("");
-			$("#u_pws").focus();
+		if(pwd.trim().length <= 0){
+			alert("비밀번호를 입력해주세요.");
+			$("#pwd").val("");
+			$("#pwd").focus();
 			return;
 		}
 		
-		// 회원가입!!
-		frm.submit();
+		var param = "m_nick="+encodeURIComponent(id)+"&m_pw="+encodeURIComponent(pwd);
+		$.ajax({
+			url:"login.my",
+			data:param,
+			type:"post",
+			dataType:"json"
+		}).done(function(data){
+			if(data.value == 1)
+				alert(data.success+"환영합니다!!");
+			if(data.value == 2)
+				alert(data.fail);
+		}).fail(function(err){
+		
+		});
 	}
 </script>
 </body>
