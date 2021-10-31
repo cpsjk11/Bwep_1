@@ -97,7 +97,7 @@
             </div>
             <div class="u-align-right u-form-group u-form-submit">
               <a href="join.my"
-              	onclick="javascript:location.href='membership.my'"
+              	onclick="send(this.form)"
                class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-12 u-custom-font u-hover-custom-color-19 u-radius-50 u-text-body-alt-color u-btn-1">회원가입<br>
               </a>
               <input type="submit" value="submit" class="u-form-control-hidden">
