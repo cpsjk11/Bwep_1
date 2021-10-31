@@ -167,9 +167,15 @@
 		})
 		/* 버튼클릭시 상단으로 이동 효과 */
 		
+		var nick = $("#nick").val();
+		var pw = $("#s_pw").val();
+		
+		if(nick.trim().length == 0)
+			$("#box").html("");
+		if(pw.trim().length == 0)
+			$("#box2").html("");
+		
 		 $("#nick").bind("keyup",function(){
-			var nick = $("#nick").val();
-			console.log(nick+"go");
 			// 이제 여기서 2글자 이상 누를시 서버로 비동기식 통신시작 아이디 값 비교
 			if(nick.trim().length > 1){
 				$.ajax({
@@ -178,6 +184,7 @@
 					type:"post",
 					dataType:"json",
 				}).done(function(data){
+					console.log("성공");
 					if(data.overlap == 1)
 						$("#box").html("사용가능");
 					else
@@ -185,15 +192,14 @@
 				}).fail(function(err){
 					
 				});
-			}else{
+			}else if(nick.trim().length < 1){
 				// 사용자가 입력한 id값의 길이가 4자 미민이면 아이디가
 				// box인 요소의 내용을 없앤다.
-				$("#box").html("");
+				$("#box").html("닉네임의 길이가 올바르지 않습니다.");
 			}
 		}); 
 		
 		$("#s_pw").bind("keyup",function(){
-			var pw = $("#s_pw").val();
 			console.log(pw);
 			if(pw.trim().length > 0){
 				$.ajax({
@@ -213,6 +219,8 @@
 				}).fail(function(err){
 					
 				});
+			}else if(pw.trim().length == 0){
+				$("#box2").html("");
 			}
 		});
 		

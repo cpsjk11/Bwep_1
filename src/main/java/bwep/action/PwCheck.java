@@ -21,11 +21,13 @@ public class PwCheck {
 		
 			// 특수기호 들어가 있는지 확인하는 문장
 			for(int i = 0; i < characters.length; i++) {
-				if(pw.indexOf(characters[i]) == -1) {
+				if(pw.indexOf(characters[i]) != -1) {
 					// 지정한 특수문자를 입력한 경우이다.
-					check = 3;
-				}else
 					check = 2;
+					break;
+				}else {
+					check = 3;
+				}
 			}
 		}else
 			check = 1;

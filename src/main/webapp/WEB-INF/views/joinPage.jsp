@@ -69,6 +69,7 @@
             <div class="u-form-group u-form-name">
               <label for="name-6797" class="u-label u-label-1">아이디</label>
               <input type="text" placeholder="아이디를 입력해주세요." id="nick" name="m_nick" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="">
+              <input type="hidden" id="value"/> 
               <span id="id_checkBox" class="checkBox"></span>
             </div>
             <div class="u-form-group">
@@ -78,7 +79,8 @@
             </div>
             <div class="u-form-group">
               <label for="message-6797" class="u-label u-label-3">비밀번호 재확인</label>
-              <input placeholder="비밀번호를 재확인해주세요." rows="4" cols="50" id="message-6797" name="u_pws" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="required" type="text">
+              <input type="password" placeholder="비밀번호를 재확인해주세요." rows="4" cols="50" id="message-6797" name="u_pws" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="required"/>
+              <span id="repw_checkBox" class="checkBox"></span>
             </div>
             <div class="u-form-group u-form-select u-form-group-4">
               <label for="select-1fa4" class="u-label u-label-4">성별</label>
@@ -157,7 +159,6 @@
 		
 		 $("#nick").bind("keyup",function(){
 			var nick = $("#nick").val();
-			console.log(nick+"go");
 			// 이제 여기서 2글자 이상 누를시 서버로 비동기식 통신시작 아이디 값 비교
 			if(nick.trim().length > 1){
 				$.ajax({
@@ -168,20 +169,23 @@
 				}).done(function(data){
 					if(data.overlap == 1)
 						$("#id_checkBox").html("사용가능").css("color","#12b886");
-					else
+					else{
 						$("#id_checkBox").html("중복").css("color","red");
+						$("#value").val("1"); // 아이디가 중복됬을때	
+					}
 				}).fail(function(err){
 					
 				});
-			}else{
-				// 사용자가 입력한 id값의 길이가 4자 미민이면 아이디가
+			}else if(nick.trim().length < 1){
+				// 사용자가 입력한 id값의 길이가 1자 미만이면 아이디가
 				// box인 요소의 내용을 없앤다.
-				$("#box").html("");
+				$("#id_checkBox	").html("");
 			}
 		}); 
 		
 		$("#s_pw").bind("keyup",function(){
 			var pw = $("#s_pw").val();
+			var repw = $("#message-6797").val();
 			console.log(pw);
 			if(pw.trim().length > 0){
 				$.ajax({
@@ -190,24 +194,68 @@
 					type:"post",
 					dataType:"json",
 				}).done(function(data){
-					if(data.check == 1)
+					if(data.check == 1){
 						$("#pw_checkBox").html("문자열의 길이가 짧습니다.").css("color","red");
-					else if(data.check == 2)
+						$("#value").val("2"); // 비밀번호가 올바르지 않을때	
+					}
+					else if(data.check == 2){
 						$("#pw_checkBox").html("사용 가능한 비밀번호 입니다.").css("color","#12b886");
+						$("#repw_checkBox").val("비밀번호를 확인해주세요.").css("color","red");	
+					}
 					else if(data.check == 3){
 						$("#pw_checkBox").html("지정한 특수기호가 없습니다.").css("color","red");
-						
+						$("#value").val("2"); // 비밀번호가 올바르지 않을때	
 					}
 				}).fail(function(err){
 					
 				});
+			}else if(pw.trim().length < 1){
+				$("#pw_checkBox").html("");
 			}
 		});
+		
+    // 비밀번호 재확인 확인
+	$("#message-6797").bind("keyup",function(){
+		var pw = $("#s_pw").val();
+		var repw = $("#message-6797").val();
+		// 비교해서 서로의 값이 같다면 일치라는 문장을 넣어주자!
+		if(repw == pw)
+			$("#repw_checkBox").html("비밀번호가 일치합니다.").css("color","#12b886");
+		else if(repw != pw){
+			$("#repw_checkBox").html("비밀번호가 일치하지 않습니다.").css("color","red");
+			$("#value").val("3"); // 비밀번호재확인이 올바르지 않을때
+			
+		}
+	});
 		
 		
 	});
 	
+    
+    
+    
 	function send(frm){
+		
+		// 위에서 히든으로 숨긴 지정한 문자열들이 있으면 회원가입을 시키지 않고 리턴한다.
+		
+		if($("#value").val().trim() == 1){
+			alert("닉네임이 중복되었습니다.");
+			$("#nick").val("");
+			$("#nick").focus();
+			return;
+		}
+		if($("#value").val().trim() == 2){
+			alert("비밀번호를 확인해주세요.");
+			$("#pw").val("");
+			$("#pw").focus();
+			return;
+		}
+		if($("#value").val().trim() == 3){
+			alert("비밀번호 재확인이 일치하지 않습니다.");
+			$("#reqw").val("");
+			$("#reqw").focus();
+			return;
+		}
 		if($("#nick").val().trim().length < 1){
 			alert("닉네임을 입력해주세요");
 			$("#nick").val("");
