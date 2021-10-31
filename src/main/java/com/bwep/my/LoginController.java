@@ -26,7 +26,6 @@ public class LoginController {
 		Map<String, String> map = new HashMap<String, String>();
 		
 		MemVO mvo = m_dao.login(m_nick, m_pw);
-		System.out.println(mvo);
 		if(mvo != null) {
 			// 로그인 성공시!!
 			map.put("success", m_nick);

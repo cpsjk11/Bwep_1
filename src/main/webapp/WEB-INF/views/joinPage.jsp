@@ -88,7 +88,7 @@
               <label for="select-1fa4" class="u-label u-label-4">성별</label>
               <div class="u-form-select-wrapper">
                 <select id=m_gender name="m_gender" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="required">
-                  <option value="1">성별을 선택해주세요</option>
+                  <option value="" selected="selected" disabled="disabled">성별을 선택해주세요</option>
                   <option value="Man">남성</option>
                   <option value="Woman">여성</option>
                 </select>
@@ -96,14 +96,13 @@
               </div>
             </div>
             <div class="u-align-right u-form-group u-form-submit">
-              <a href="#" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-12 u-custom-font u-hover-custom-color-19 u-radius-50 u-text-body-alt-color u-btn-1">회원가입<br>
+              <a href="join.my"
+              	onclick="javascript:location.href='membership.my'"
+               class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-12 u-custom-font u-hover-custom-color-19 u-radius-50 u-text-body-alt-color u-btn-1">회원가입<br>
               </a>
               <input type="submit" value="submit" class="u-form-control-hidden">
             </div>
-            <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
-            <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
             <input type="hidden" value="" name="recaptchaResponse">
-            <button type="button" onclick="send(this.form)">연습</button>
           </form>
           <%-- ************** 회원가입 폼 ****************  --%>
           
