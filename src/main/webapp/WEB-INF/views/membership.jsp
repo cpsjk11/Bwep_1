@@ -34,7 +34,7 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-custom-font u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="Home.html" style="padding: 10px;">Home</a>
+            <ul class="u-custom-font u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="membership.my" style="padding: 10px;">Home</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="About.html" style="padding: 10px;">About</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="joinPage.my" style="padding: 10px;">JoinPage</a>
 </li></ul>
@@ -58,7 +58,17 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <img class="u-image u-image-default u-preserve-proportions u-image-1" src="resources/images/body_text_l-3-ld.svg" alt="" data-image-width="1031" data-image-height="650" data-animation-name="pulse" data-animation-duration="2500" data-animation-delay="250" data-animation-direction="">
         <div class="u-container-style u-group u-group-1">
-          <div class="u-container-layout">
+	        <%-- ************** 로그인 성공 시 ****************--%>
+			<div id="login_sc" 
+			style="display: none; margin-top: 80px;
+			margin-left: 45px;">
+				<span id="sc_text" class="u-custom-font u-text u-text-default u-text-1" style="color: #008f7a;"></span>
+				<h3 class="u-custom-font u-text u-text-default u-text-2">반가워요!</h3><br/>
+				<h3 class="u-custom-font u-text u-text-default u-text-2">bmi지수 : ###</h3><br/><br/><br/>
+				<a href="#" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">bmi검사하러가기</a>
+			</div>
+				<%-- ************** 로그인 성공 시 끝****************--%>
+          <div id="topBox" class="u-container-layout">
             <h1 class="u-custom-font u-text u-text-default u-text-1">Bwep</h1>
             <div class="u-border-4 u-border-palette-3-base u-line u-line-horizontal u-line-1"></div>
             <h3 class="u-text u-text-default u-text-2">서비스를 이용하기 위해서<br>로그인을 해주세요!
@@ -93,7 +103,7 @@
           </div>
         </div>
             <%-- ************** 로그인 폼 끝 ***************** --%>
-            
+			
         <img class="u-image u-image-default u-preserve-proportions u-image-2" src="resources/images/21.svg" alt="" data-image-width="2000" data-image-height="2000" data-animation-name="pulse" data-animation-duration="2500" data-animation-delay="500" data-animation-direction="">
         <h1 class="u-custom-font u-text u-text-default u-text-3">Bmi</h1>
         <p class="u-large-text u-text u-text-variant u-text-4"> 체질량지수는 자신의 몸무게(kg)를 키의 제곱(m)으로 나눈 값입니다.<br>
@@ -103,8 +113,8 @@
         <h3 class="u-text u-text-5">저도 비만인가요?</h3>
         <h6 class="u-text u-text-6"> 다양한 질병을 부르는 비만을 간단하게 키와 체중만 알아도 진단하는 방법에는 체질량지수 계산법, 체중대비 백분율이 있습니다.<br>
         </h6>
-        <a class="top_btn u-border-none u-btn u-btn-round u-button-style u-custom-color-5 u-hover-custom-color-15 u-radius-35 u-btn-4"
-        id="top_btn" >bmi지금 확인해보기</a><!-- onclick="window.scrollTo(0,0);" -->
+        <!-- <a class="top_btn u-border-none u-btn u-btn-round u-button-style u-custom-color-5 u-hover-custom-color-15 u-radius-35 u-btn-4"
+        id="top_btn" >bmi지금 확인해보기</a>onclick="window.scrollTo(0,0);" -->
       </div>
     </section>
     
@@ -182,10 +192,19 @@
 			type:"post",
 			dataType:"json"
 		}).done(function(data){
-			if(data.value == 1)
+			if(data.value == 1){
 				alert(data.success+"환영합니다!!");
-			if(data.value == 2)
+				$("#sc_text").text(data.success+"님");
+				$("#login_sc").css("display","block");		
+				$("#topBox").css("display" ,"none");
+			}
+				if(data.value == 2){
 				alert(data.fail);
+				$("#nick").val("");
+				$("#pwd").val("");
+				$("#topBox").css("display" ,"block");
+				$("#login_sc").css("display","none");
+			}
 		}).fail(function(err){
 		
 		});
