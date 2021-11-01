@@ -3,7 +3,7 @@ package bwep.action;
 public class BmiCheck {
 	
 	
-	public double Calculation(double b_cm, double b_kg) {
+	public static double Calculation(double b_cm, double b_kg) {
 		
 		// 키를 받은 값을 작게 만들어야 한다!! ex) 170 = 1.7
 		b_cm = b_cm * 0.01;
