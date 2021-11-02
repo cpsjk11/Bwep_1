@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="re">
+
+<!-- bmi 값이 나올때 DB에 저장하는 문장! -->
+<insert id="add" parameterType="bwep.vo.ReVO">
+	INSERT INTO (m_nick,r_result,r_num)
+	VALUES (#{m_nick},#{r_result},#{r_num})
+</insert>
+
+<!-- 사용자가 지금 몇번째 bmi를 결과를 받는지 횟수 구하기 -->
+<select id="resultNum" parameterType="String" resultType="int">
+	select COUNT(*) from result_b
+	where m_nick = '민우'
+</select>
+</mapper>
