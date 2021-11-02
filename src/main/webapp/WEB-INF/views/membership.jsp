@@ -37,6 +37,7 @@
             <ul class="u-custom-font u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="membership.my" style="padding: 10px;">Home</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="About.html" style="padding: 10px;">About</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="joinPage.my" style="padding: 10px;">JoinPage</a>
+</li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="bmiPage.my" style="padding: 10px;">bmi</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
@@ -46,6 +47,7 @@
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html" style="padding: 10px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html" style="padding: 10px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="joinPage.my" style="padding: 10px;">JoinPage</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="bmiPage.my" style="padding: 10px;">bmi</a>
 </li></ul>
               </div>
             </div>
@@ -135,7 +137,8 @@
           <div class="u-nav-container">
             <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="JoinPage.html">JoinPage</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="JoinPage.my">JoinPage</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="bmiPage.my">bmi</a>
 </li></ul>
           </div>
           <div class="u-nav-container-collapse">
@@ -144,7 +147,8 @@
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="JoinPage.html">JoinPage</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="JoinPage.my">JoinPage</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="JbmiPage.my">bmi</a>
 </li></ul>
               </div>
             </div>
