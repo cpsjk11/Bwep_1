@@ -1,0 +1,255 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 1166px;
+}
+
+.u-section-1 .u-text-1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 117px 570px 0 100px;
+}
+
+.u-section-1 .u-text-2 {
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none solid rgb(128, 128, 128);
+  font-weight: 700;
+  margin: 14px 570px 0 100px;
+}
+
+.u-section-1 .u-group-1 {
+  min-height: 435px;
+  width: 965px;
+  height: auto;
+  margin: 17px auto 60px;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 50px 46px 30px 60px;
+}
+
+.u-section-1 .u-text-3 {
+  font-weight: 700;
+  margin: 0 570px 0 0;
+}
+
+.u-section-1 .u-btn-1 {
+  border-style: none;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 56px auto 0 0;
+  padding: 0;
+}
+
+.u-section-1 .u-btn-2 {
+  border-style: none;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  margin: 20px auto 0 0;
+  padding: 0;
+}
+
+.u-section-1 .u-text-4 {
+  font-weight: 400;
+  margin: 20px 570px 0 0;
+}
+
+.u-section-1 .u-form-1 {
+  height: 298px;
+  margin: -251px 0 0 394px;
+}
+
+.u-section-1 .u-btn-3 {
+  text-transform: uppercase;
+  background-image: none;
+  border-style: none;
+  width: 100%;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-text-1 {
+    margin-right: 470px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: 470px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-group-1 {
+    width: 940px;
+    height: auto;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-right: 545px;
+  }
+
+  .u-section-1 .u-text-4 {
+    margin-right: 545px;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-left: 369px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-text-1 {
+    margin-right: 250px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: 250px;
+  }
+
+  .u-section-1 .u-group-1 {
+    width: 720px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-right: 371px;
+  }
+
+  .u-section-1 .u-text-4 {
+    margin-right: 371px;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-right: initial;
+    margin-left: initial;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-text-1 {
+    margin-right: 70px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: 70px;
+  }
+
+  .u-section-1 .u-group-1 {
+    width: 540px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-right: 231px;
+  }
+
+  .u-section-1 .u-text-4 {
+    margin-right: 231px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-text-1 {
+    font-size: 1.5rem;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-group-1 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-right: 31px;
+  }
+
+  .u-section-1 .u-text-4 {
+    margin-right: 31px;
+  }
+
+
+.u-section-2 .u-sheet-1 {
+  min-height: 575px;
+}
+.data_panel{
+	padding: 30px;
+}
+.page-container fieldset, fieldset{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    letter-spacing: -0.0125em;
+    font-family: 'Nanum Gothic',Dotum,'굴림',Gulim,Helvetica,sans-serif !important;
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+}
+.page-container *{
+    box-sizing: border-box;
+}
+.bmi-search {
+    border: 1px solid #D7D7D7;
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: #FFF;
+    margin-bottom: 0;
+}
+.bmi-search:after, .bmi-search .col-3 dl:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+}
+.bmi-search .col-3 {
+    width: 33.3333333%;
+    float: left;
+    display: inline-block;
+}
+.bmi-search .col-3:first-child h3 {
+    border-top-left-radius: 5px;
+}
+.bmi-search .col-3 dl {
+    padding: 20px 20px 10px;
+    margin: 0;
+}
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 547px;
+  }
+}

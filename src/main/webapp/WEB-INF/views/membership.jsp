@@ -37,7 +37,7 @@
             <ul class="u-custom-font u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="membership.my" style="padding: 10px;">Home</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="About.html" style="padding: 10px;">About</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="joinPage.my" style="padding: 10px;">JoinPage</a>
-</li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="bmiPage.my" style="padding: 10px;">bmi</a>
+</li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="bmi/bmiPage.my" style="padding: 10px;">bmi</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
@@ -47,7 +47,7 @@
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html" style="padding: 10px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html" style="padding: 10px;">About</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="joinPage.my" style="padding: 10px;">JoinPage</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="bmiPage.my" style="padding: 10px;">bmi</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="bmi/bmiPage.my" style="padding: 10px;">bmi</a>
 </li></ul>
               </div>
             </div>
@@ -116,8 +116,10 @@
         <h3 class="u-text u-text-5">저도 비만인가요?</h3>
         <h6 class="u-text u-text-6"> 다양한 질병을 부르는 비만을 간단하게 키와 체중만 알아도 진단하는 방법에는 체질량지수 계산법, 체중대비 백분율이 있습니다.<br>
         </h6>
-        <!-- <a class="top_btn u-border-none u-btn u-btn-round u-button-style u-custom-color-5 u-hover-custom-color-15 u-radius-35 u-btn-4"
-        id="top_btn" >bmi지금 확인해보기</a>onclick="window.scrollTo(0,0);" -->
+        <c:if test="${sessionScope.log ne null }">
+	        <a class="top_btn u-border-none u-btn u-btn-round u-button-style u-custom-color-5 u-hover-custom-color-15 u-radius-35 u-btn-4"
+	        id="top_btn" >bmi지금 확인해보기</a><!-- onclick="window.scrollTo(0,0);" -->
+        </c:if>
       </div>
     </section>
     
@@ -171,6 +173,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
+
 	
 	function login(frm){
 		// 비동기식을 이용한 로그인!!
@@ -214,6 +217,9 @@
 		
 		});
 	}
+	document.getElementById("top_btn").addEventListener('click', function(){
+        scrollTo(document.getElementsByTagName("body")[0], "up");
+    });
 </script>
 </body>
 </html>
