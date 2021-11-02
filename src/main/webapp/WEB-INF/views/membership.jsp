@@ -69,7 +69,8 @@
 				<h3 class="u-custom-font u-text u-text-default u-text-2">bmi지수 : ###</h3><br/><br/><br/>
 				<a href="#" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">bmi검사하러가기</a>
 			</div>
-				<%-- ************** 로그인 성공 시 끝****************--%>
+				  <%-- ************** 로그인 성공 시 끝****************--%>
+      <c:if test="${sessionScope.log eq null }">
           <div id="topBox" class="u-container-layout">
             <h1 class="u-custom-font u-text u-text-default u-text-1">Bwep</h1>
             <div class="u-border-4 u-border-palette-3-base u-line u-line-horizontal u-line-1"></div>
@@ -103,7 +104,7 @@
             <a href="joinPage.my" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">회원가입</a>
             <a href="javascript:login()" class="u-btn u-btn-round u-button-style u-custom-color-7 u-custom-font u-heading-font u-hover-custom-color-8 u-radius-50 u-text-body-alt-color u-btn-3">로그인</a>
           </div>
-        </div>
+        </c:if>
             <%-- ************** 로그인 폼 끝 ***************** --%>
 			
         <img class="u-image u-image-default u-preserve-proportions u-image-2" src="resources/images/21.svg" alt="" data-image-width="2000" data-image-height="2000" data-animation-name="pulse" data-animation-duration="2500" data-animation-delay="500" data-animation-direction="">

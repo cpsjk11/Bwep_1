@@ -40,6 +40,13 @@
 	
 	<context:component-scan base-package="com.bwep.my" />
 	
-	
+	<beans:bean id="bmi_inter" class="bwep.action.LoginInterceptor"/>
+       
+      <interceptors>
+         <interceptor>
+            <mapping path="/bmi/*"/>
+            <beans:ref bean="bmi_inter"/>
+         </interceptor>
+      </interceptors>
 	
 </beans:beans>

@@ -9,10 +9,10 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Page 1</title>
-    <link rel="stylesheet" href="resources/css/nicepage.css" media="screen">
-<link rel="stylesheet" href="resources/css/nicepage.css" media="screen">
-    <script class="u-script" type="text/javascript" src="resources/js/jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="resources/js/nicepage.js" defer=""></script>
+	<link rel="stylesheet" href="../resources/css/chart.css" media="screen">
+	<link rel="stylesheet" href="../resources/css/nicepage.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../resources/js/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../resources/js/nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.29.1, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme:400">
@@ -63,13 +63,17 @@
         <p class="u-custom-font u-text u-text-1">Bwep</p>
       </div></header>
     <section class="u-clearfix u-section-1" id="sec-0a6a">
-      <div class="u-clearfix u-sheet u-sheet-1"></div>
+      <div class="u-clearfix u-sheet u-sheet-1">
+      	<div id="chart_panel">
+      		
+      	</div>	
+      </div>
     </section>
     
     
     <footer class="u-clearfix u-footer u-grey-60" id="sec-c919"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1">
-          <img src="images/default-logo.png" class="u-logo-image u-logo-image-1">
+          <img src="../resources/images/default-logo.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
           <div class="menu-collapse">
