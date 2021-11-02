@@ -69,15 +69,14 @@
 				<h3 class="u-custom-font u-text u-text-default u-text-2">bmi지수 : ###</h3><br/><br/><br/>
 				<a href="#" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">bmi검사하러가기</a>
 			</div>
-				  <%-- ************** 로그인 성공 시 끝****************--%>
-      <c:if test="${sessionScope.log eq null }">
-          <div id="topBox" class="u-container-layout">
-            <h1 class="u-custom-font u-text u-text-default u-text-1">Bwep</h1>
-            <div class="u-border-4 u-border-palette-3-base u-line u-line-horizontal u-line-1"></div>
-            <h3 class="u-text u-text-default u-text-2">서비스를 이용하기 위해서<br>로그인을 해주세요!
-            </h3>
+				<%-- ************** 로그인 성공 시 끝****************--%>
+            <c:if test="${sessionScope.log eq null}">
+	          <div id="topBox" class="u-container-layout">
+	            <h1 class="u-custom-font u-text u-text-default u-text-1">Bwep</h1>
+	            <div class="u-border-4 u-border-palette-3-base u-line u-line-horizontal u-line-1"></div>
+	            <h3 class="u-text u-text-default u-text-2">서비스를 이용하기 위해서<br>로그인을 해주세요!
+	            </h3>
             <%-- ************** 로그인 폼 ***************** --%>
-            
             <div class="u-form u-login-control u-form-1">
               <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
@@ -104,7 +103,8 @@
             <a href="joinPage.my" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">회원가입</a>
             <a href="javascript:login()" class="u-btn u-btn-round u-button-style u-custom-color-7 u-custom-font u-heading-font u-hover-custom-color-8 u-radius-50 u-text-body-alt-color u-btn-3">로그인</a>
           </div>
-        </c:if>
+          </c:if>
+        </div>
             <%-- ************** 로그인 폼 끝 ***************** --%>
 			
         <img class="u-image u-image-default u-preserve-proportions u-image-2" src="resources/images/21.svg" alt="" data-image-width="2000" data-image-height="2000" data-animation-name="pulse" data-animation-duration="2500" data-animation-delay="500" data-animation-direction="">
