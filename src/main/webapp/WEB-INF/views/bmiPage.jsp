@@ -107,8 +107,8 @@
       <%-- **************************************계산폼끝 --%>
     </section>
     <section class="u-section-1" id="ch">
-      <div class="chart_panel u-clearfix u-sheet u-sheet-1">
-      	<div id="chart">
+      <div style="width: 55%; margin: 0 auto; margin-bottom: 300px;">
+      	<div id="chart" style="width: 100%">
 		  <canvas id="myChart"></canvas>
 		</div>
 		<!-- <div id="chart">
@@ -146,14 +146,14 @@ referrerpolicy="no-referrer">
 
 
 	//차트에 들어갈 변수생성
-	const labels = ["2012","2013","2014","2015","2016","2017","2018","2019","2020"];
+	const labels = ["19~24세","25~29세","30~34세","35~39세","40~44세","45~49세","50~54세","55~59세","60~64세"];
 	
 	const data = {
 			labels,
 			datasets: [
 				{
 				//여기서 labels배열에 담긴 순서대로 데이터가담긴다. 배열갯수를 맞춰야함
-				data: [211, 326, 165, 350, 420, 370, 500, 375, 415],
+				data: [23.3, 23.7, 24.9, 25.2, 24, 24.9, 24.5, 24.6, 24],
 				label: "연령별 bmi평균 지수",
 				fill: true,
 				backgroundColor: gradient,
@@ -187,14 +187,15 @@ referrerpolicy="no-referrer">
 				scales: {
 					y:{ // 왼쪽 좌표에서 표현하고 싶은값을 여기서 구현해야 됨
 						ticks: {
-							callback: function(value, index){
-								return '$' + value + "m";
-							},
+							beginAtZero:true
+							/* callback: function(value, index){
+								return '$' + value + "m"; 
+							}, */
 						},
 					},
 				},
 			},
-	};
+		};
 	
 	const myChart = new Chart(ctx, config);
 	/* // *****************************************************
