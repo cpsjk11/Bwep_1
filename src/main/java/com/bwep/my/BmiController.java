@@ -30,7 +30,7 @@ public class BmiController {
 		return bmi;
 	}
 	
-	@RequestMapping("bmi/bmiPage.my")
+	@RequestMapping("bmiPage.my")
 	public String goBmi() {
 		return "bmiPage";
 	}

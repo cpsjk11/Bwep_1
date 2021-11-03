@@ -44,7 +44,7 @@
        
       <interceptors>
          <interceptor>
-            <mapping path="/bmi/*"/>
+            <mapping path="/bmiPage.my"/>
             <beans:ref bean="bmi_inter"/>
          </interceptor>
       </interceptors>

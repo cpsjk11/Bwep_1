@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -30,16 +31,18 @@
         <img class="u-image u-image-default u-preserve-proportions u-image-1" src="resources/images/body_text_l-3-ld.svg" alt="" data-image-width="1031" data-image-height="650" data-animation-name="pulse" data-animation-duration="2500" data-animation-delay="250" data-animation-direction="">
         <div class="u-container-style u-group u-group-1">
 	        <%-- ************** 로그인 성공 시 ****************--%>
-			<div id="login_sc" 
-			style="display: none; margin-top: 80px;
-			margin-left: 45px;">
-				<span id="sc_text" class="u-custom-font u-text u-text-default u-text-1" style="color: #008f7a;"></span>
-				<h3 class="u-custom-font u-text u-text-default u-text-2">반가워요!</h3><br/>
-				<h3 class="u-custom-font u-text u-text-default u-text-2">bmi지수 : ###</h3><br/><br/><br/>
-				<a href="#" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">bmi검사하러가기</a>
-			</div>
+	        <c:if test="${fn:length(sessionScope.log) > 0}">
+				<div id="login_sc" 
+				style="display: block; margin-top: 80px;
+				margin-left: 45px;">
+					<span id="sc_text" class="u-custom-font u-text u-text-default u-text-1" style="color: #008f7a;"></span>
+					<h3 class="u-custom-font u-text u-text-default u-text-2">반가워요!</h3><br/>
+					<h3 class="u-custom-font u-text u-text-default u-text-2">bmi지수 : ###</h3><br/><br/><br/>
+					<a href="#" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">bmi검사하러가기</a>
+				</div>
+			</c:if>
 				<%-- ************** 로그인 성공 시 끝****************--%>
-            <c:if test="${sessionScope.log eq null}">
+            <c:if test="${fn:length(sessionScope.log) < 1}">
 	          <div id="topBox" class="u-container-layout">
 	            <h1 class="u-custom-font u-text u-text-default u-text-1">Bwep</h1>
 	            <div class="u-border-4 u-border-palette-3-base u-line u-line-horizontal u-line-1"></div>
@@ -47,7 +50,7 @@
 	            </h3>
             <%-- ************** 로그인 폼 ***************** --%>
             <div class="u-form u-login-control u-form-1">
-              <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
+              <form action="login.my" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
                   <label for="username-708d" class="u-form-control-hidden u-label"></label>
                   <input type="text" placeholder="닉네임을 입력해주세요." id="nick" name="username" class="u-grey-5 u-input u-input-rectangle" required="">
@@ -97,7 +100,7 @@
 <script>
 
 	
-	function login(frm){
+	function login(){
 		// 비동기식을 이용한 로그인!!
 		var id = $("#nick").val();
 		var pwd = $("#pwd").val();
@@ -125,23 +128,20 @@
 			if(data.value == 1){
 				alert(data.success+"환영합니다!!");
 				$("#sc_text").text(data.success+"님");
-				$("#login_sc").css("display","block");		
-				$("#topBox").css("display" ,"none");
+				/* $("#login_sc").css("display","block");		
+				$("#topBox").css("display" ,"none"); */
 			}
 				if(data.value == 2){
 				alert(data.fail);
 				$("#nick").val("");
 				$("#pwd").val("");
-				$("#topBox").css("display" ,"block");
-				$("#login_sc").css("display","none");
+				/* $("#topBox").css("display" ,"block"); */
+				/* $("#login_sc").css("display","none"); */
 			}
 		}).fail(function(err){
-		
+			alert("문제발생!!!");
 		});
 	}
-	document.getElementById("top_btn").addEventListener('click', function(){
-        scrollTo(document.getElementsByTagName("body")[0], "up");
-    });
 </script>
 </body>
 </html>
