@@ -21,6 +21,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
       if(nick == null) {
          // 로그인이 되지 않은 상태이다. 그럼 로그인 페이지로 이동하자!
          response.sendRedirect("redircet:/");
+         session.setAttribute("notlog", "x");
          return false;
       }
       // 현재 로그인이 된 상태
@@ -29,6 +30,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     	  session.removeAttribute("log");
     	  response.sendRedirect("redircet:/");
       }
+      session.removeAttribute("notlog");
+      
       return true; // 원래 하던일을 그대로 수행하게 해준다.
    }
    

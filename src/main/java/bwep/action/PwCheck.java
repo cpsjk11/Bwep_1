@@ -14,7 +14,7 @@ public class PwCheck {
 		int check = 0;
 		
 		// 비밀번호 길이 확인
-		if(pw.trim().length() > 7 && pw.trim().length() < 19) {
+		if(pw.trim().length() > 7 && pw.trim().length() < 50) {
 			// 여기에 들어온 경우는 숫자를 너무 길게 혹은 짧게 입력한 경우이다.
 			// 그러므로 아무것도 하지말고 반환값에 1을 넣어 반환하자
 			
