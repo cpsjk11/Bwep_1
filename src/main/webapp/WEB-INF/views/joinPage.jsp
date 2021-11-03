@@ -70,7 +70,7 @@
           <form action="membership_ok.my" method="POST" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 15px;" source="custom" name="joinForm">
             <div class="u-form-group u-form-name">
               <label for="name-6797" class="u-label u-label-1">아이디</label>
-              <input type="text" placeholder="아이디를 입력해주세요." id="nick" name="m_nick" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="">
+              <input type="text" placeholder="닉네임은 2글자에서 최대 10글자 까지입력해주세요." maxlength="10" id="nick" name="m_nick" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="">
               <input type="hidden" id="value"/> 
               <input type="hidden" id="value2"/> 
               <input type="hidden" id="value3"/> 
@@ -78,7 +78,7 @@
             </div>
             <div class="u-form-group">
               <label for="email-6797" class="u-label u-label-2">비밀번호</label>
-              <input type="password" placeholder="비밀번호를 입력해주세요." id="s_pw" name="m_pw" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="required">
+              <input type="password" placeholder="비밀번호는 8자 이상 !,@,#,$,% 를 포함해주세요." id="s_pw" name="m_pw" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="required">
               <span id="pw_checkBox" class="checkBox"></span>
             </div>
             <div class="u-form-group">

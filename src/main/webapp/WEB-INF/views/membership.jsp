@@ -81,11 +81,11 @@
               <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
                 <div class="u-form-group u-form-name">
                   <label for="username-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="닉네임을 입력해주세요" id="nick" name="username" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="text" placeholder="닉네임을 입력해주세요." id="nick" name="username" class="u-grey-5 u-input u-input-rectangle" required="">
                 </div>
                 <div class="u-form-group u-form-password">
                   <label for="password-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="password" placeholder="비밀번호를 입력해주세요" id="pwd" name="password" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="password" placeholder="비밀번호를 입력해주세요." id="pwd" name="password" class="u-grey-5 u-input u-input-rectangle" required="">
                 </div>
                 <div class="u-form-checkbox u-form-group u-form-group-3">
                   <input type="checkbox" id="checkbox-708d" name="remember" value="On">
