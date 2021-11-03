@@ -57,7 +57,7 @@
                 </div>
                 <div class="u-form-group u-form-password">
                   <label for="password-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="password" placeholder="비밀번호를 입력해주세요." id="pwd" name="password" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <input type="password" placeholder="비밀번호를 입력해주세요." id="pwd" name="password" class="u-grey-5 u-input u-input-rectangle" onkeyup="enter()">
                 </div>
                 <div class="u-form-checkbox u-form-group u-form-group-3">
                   <input type="checkbox" id="checkbox-708d" name="remember" value="On">
@@ -98,6 +98,14 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
+
+	function enter(){
+		if (window.event.keyCode == 13) {
+	    	// 엔터키가 눌렸을 때
+	    	return;
+	    }
+	}
+
 	// 페이지 로딩 완료시 로그인 비 로그인 둘다 DIV보여주기!!
 	function block(){
 		$("#login_sc").css("display","block");		
@@ -105,6 +113,7 @@
 	}
 	
 	function login(){
+		
 		// 비동기식을 이용한 로그인!!
 		var id = $("#nick").val();
 		var pwd = $("#pwd").val();
@@ -136,7 +145,7 @@
 			}
 				if(data.value == 2){
 				alert(data.fail);
-				$("#nick").val("");
+				$("#nick").val(id);
 				$("#pwd").val("");
 				
 			}
