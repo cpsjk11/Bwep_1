@@ -24,7 +24,7 @@
     <meta property="og:type" content="website">
     
 </head>
-<body class="u-body">
+<body class="u-body" onload="block()">
         <jsp:include page="nav.jsp"/>
     <section class="u-align-left u-clearfix u-typography-custom-page-typography-8--Introduction u-white u-section-1" src="" id="sec-b44c">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -33,7 +33,7 @@
 	        <%-- ************** 로그인 성공 시 ****************--%>
 	        <c:if test="${fn:length(sessionScope.log) > 0}">
 				<div id="login_sc" 
-				style="display: block; margin-top: 80px;
+				style="display: none; margin-top: 80px;
 				margin-left: 45px;">
 					<span id="sc_text" class="u-custom-font u-text u-text-default u-text-1" style="color: #008f7a;">${sessionScope.log }</span>
 					<h3 class="u-custom-font u-text u-text-default u-text-2">반가워요!</h3><br/>
@@ -98,7 +98,11 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
-
+	// 페이지 로딩 완료시 로그인 비 로그인 둘다 DIV보여주기!!
+	function block(){
+		$("#login_sc").css("display","block");		
+		$("#topBox").css("display" ,"block");
+	}
 	
 	function login(){
 		// 비동기식을 이용한 로그인!!
@@ -126,17 +130,15 @@
 			dataType:"json"
 		}).done(function(data){
 			if(data.value == 1){
-				/* alert(data.success+"환영합니다!!");
-				$("#sc_text").html(data.success+"님"); */
-				/* $("#login_sc").css("display","block");		
-				$("#topBox").css("display" ,"none"); */
+				 alert(data.success+"환영합니다!!");
+				$("#sc_text").html(data.success+"님");
+				location.href="/my";
 			}
 				if(data.value == 2){
 				alert(data.fail);
 				$("#nick").val("");
 				$("#pwd").val("");
-				/* $("#topBox").css("display" ,"block"); */
-				/* $("#login_sc").css("display","none"); */
+				
 			}
 		}).fail(function(err){
 			alert("문제발생!!!");
