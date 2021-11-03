@@ -46,7 +46,6 @@
 	                                 <label for="searchSexFlagM">성별</label>
 	                             </dt>
 	                             <dd>
-<!-- 	                                 <div class="btn-group" data-toggle="buttons"> -->
 	                                 <div class="btn-group">
 	                                     <label for="searchSexFlagM" class="btn active">
 	                                         <input type="radio" title="성별" name="searchSexFlag" id="searchSexFlagM" checked="">
@@ -107,12 +106,12 @@
       </div>
       <%-- **************************************계산폼끝 --%>
     </section>
-    <section class="u-clearfix u-section-1" id="sec-0a6a">
+    <section class="u-section-1" id="ch">
       <div class="chart_panel u-clearfix u-sheet u-sheet-1">
       	<div id="chart">
 		  <canvas id="myChart"></canvas>
 		</div>
-		<div id="chart">
+		<!-- <div id="chart">
 		  <canvas id="myChart2"></canvas>
 		</div>
 		<div id="chart">
@@ -123,7 +122,7 @@
 		</div>
 		<div id="chart">
 		  <canvas id="myChart5"></canvas>
-		</div>	
+		</div> -->	
       </div>
     </section>
     <jsp:include page="foot.jsp"/>
@@ -138,8 +137,6 @@ referrerpolicy="no-referrer">
     <script>
   //차트가져오기
 	const ctx = document.getElementById("myChart").getContext("2d");
-
-
 
 
 	//그라디언트만들기
@@ -157,7 +154,7 @@ referrerpolicy="no-referrer">
 				{
 				//여기서 labels배열에 담긴 순서대로 데이터가담긴다. 배열갯수를 맞춰야함
 				data: [211, 326, 165, 350, 420, 370, 500, 375, 415],
-				label: "마인크래프트 판매량",
+				label: "연령별 bmi평균 지수",
 				fill: true,
 				backgroundColor: gradient,
                 borderColor: "#fff",
@@ -200,7 +197,7 @@ referrerpolicy="no-referrer">
 	};
 	
 	const myChart = new Chart(ctx, config);
-	// *****************************************************
+	/* // *****************************************************
 	//차트가져오기
 	const ctx2 = document.getElementById("myChart2").getContext("2d");
 
@@ -278,7 +275,7 @@ referrerpolicy="no-referrer">
 	
 	const myChart3 = new Chart(ctx3, config3);
 	/* ************************************************** */
-            var context = document
+            /* var context = document
                 .getElementById('myChart4')
                 .getContext('2d');
             var myChart4 = new Chart(context, {
@@ -337,9 +334,8 @@ referrerpolicy="no-referrer">
                         ]
                     }
                 }
-            });
+            }); */
             
-            /*********************다르게해보자잉..************************  */
         
     </script>
   </body>
