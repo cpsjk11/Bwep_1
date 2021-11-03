@@ -46,7 +46,6 @@
 	                                 <label for="searchSexFlagM">성별</label>
 	                             </dt>
 	                             <dd>
-<!-- 	                                 <div class="btn-group" data-toggle="buttons"> -->
 	                                 <div class="btn-group">
 	                                     <label for="searchSexFlagM" class="btn active">
 	                                         <input type="radio" title="성별" name="searchSexFlag" id="searchSexFlagM" checked="">
@@ -107,12 +106,12 @@
       </div>
       <%-- **************************************계산폼끝 --%>
     </section>
-    <section class="u-clearfix u-section-1" id="sec-0a6a">
-      <div class="chart_panel u-clearfix u-sheet u-sheet-1">
-      	<div id="chart">
+    <section class="u-section-1" id="ch">
+      <div style="width: 55%; margin: 0 auto; margin-bottom: 300px;">
+      	<div id="chart" style="width: 100%">
 		  <canvas id="myChart"></canvas>
 		</div>
-		<div id="chart">
+		<!-- <div id="chart">
 		  <canvas id="myChart2"></canvas>
 		</div>
 		<div id="chart">
@@ -123,7 +122,7 @@
 		</div>
 		<div id="chart">
 		  <canvas id="myChart5"></canvas>
-		</div>	
+		</div> -->	
       </div>
     </section>
     <jsp:include page="foot.jsp"/>
@@ -140,8 +139,6 @@ referrerpolicy="no-referrer">
 	const ctx = document.getElementById("myChart").getContext("2d");
 
 
-
-
 	//그라디언트만들기
 	let gradient = ctx.createLinearGradient(0,0,0,400);
     gradient.addColorStop(0,'rgba(58,123,213,1)');
@@ -149,15 +146,15 @@ referrerpolicy="no-referrer">
 
 
 	//차트에 들어갈 변수생성
-	const labels = ["2012","2013","2014","2015","2016","2017","2018","2019","2020"];
+	const labels = ["19~24세","25~29세","30~34세","35~39세","40~44세","45~49세","50~54세","55~59세","60~64세"];
 	
 	const data = {
 			labels,
 			datasets: [
 				{
 				//여기서 labels배열에 담긴 순서대로 데이터가담긴다. 배열갯수를 맞춰야함
-				data: [211, 326, 165, 350, 420, 370, 500, 375, 415],
-				label: "마인크래프트 판매량",
+				data: [23.3, 23.7, 24.9, 25.2, 24, 24.9, 24.5, 24.6, 24],
+				label: "연령별 bmi평균 지수",
 				fill: true,
 				backgroundColor: gradient,
                 borderColor: "#fff",
@@ -190,17 +187,18 @@ referrerpolicy="no-referrer">
 				scales: {
 					y:{ // 왼쪽 좌표에서 표현하고 싶은값을 여기서 구현해야 됨
 						ticks: {
-							callback: function(value, index){
-								return '$' + value + "m";
-							},
+							beginAtZero:true
+							/* callback: function(value, index){
+								return '$' + value + "m"; 
+							}, */
 						},
 					},
 				},
 			},
-	};
+		};
 	
 	const myChart = new Chart(ctx, config);
-	// *****************************************************
+	/* // *****************************************************
 	//차트가져오기
 	const ctx2 = document.getElementById("myChart2").getContext("2d");
 
@@ -278,7 +276,7 @@ referrerpolicy="no-referrer">
 	
 	const myChart3 = new Chart(ctx3, config3);
 	/* ************************************************** */
-            var context = document
+            /* var context = document
                 .getElementById('myChart4')
                 .getContext('2d');
             var myChart4 = new Chart(context, {
@@ -337,9 +335,8 @@ referrerpolicy="no-referrer">
                         ]
                     }
                 }
-            });
+            }); */
             
-            /*********************다르게해보자잉..************************  */
         
     </script>
   </body>
