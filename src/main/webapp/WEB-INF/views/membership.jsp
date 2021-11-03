@@ -38,7 +38,7 @@
 					<span id="sc_text" class="u-custom-font u-text u-text-default u-text-1" style="color: #008f7a;">${sessionScope.log }</span>
 					<h3 class="u-custom-font u-text u-text-default u-text-2">반가워요!</h3><br/>
 					<h3 class="u-custom-font u-text u-text-default u-text-2">bmi지수 : ###</h3><br/><br/><br/>
-					<a href="#" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">bmi검사하러가기</a>
+					<a href="bmiPage.my" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">bmi검사하러가기</a>
 				</div>
 			</c:if>
 				<%-- ************** 로그인 성공 시 끝****************--%>
