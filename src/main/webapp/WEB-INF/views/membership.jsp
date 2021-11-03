@@ -35,7 +35,7 @@
 				<div id="login_sc" 
 				style="display: block; margin-top: 80px;
 				margin-left: 45px;">
-					<span id="sc_text" class="u-custom-font u-text u-text-default u-text-1" style="color: #008f7a;"></span>
+					<span id="sc_text" class="u-custom-font u-text u-text-default u-text-1" style="color: #008f7a;">${sessionScope.log }</span>
 					<h3 class="u-custom-font u-text u-text-default u-text-2">반가워요!</h3><br/>
 					<h3 class="u-custom-font u-text u-text-default u-text-2">bmi지수 : ###</h3><br/><br/><br/>
 					<a href="#" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">bmi검사하러가기</a>
@@ -126,8 +126,8 @@
 			dataType:"json"
 		}).done(function(data){
 			if(data.value == 1){
-				alert(data.success+"환영합니다!!");
-				$("#sc_text").text(data.success+"님");
+				/* alert(data.success+"환영합니다!!");
+				$("#sc_text").html(data.success+"님"); */
 				/* $("#login_sc").css("display","block");		
 				$("#topBox").css("display" ,"none"); */
 			}
