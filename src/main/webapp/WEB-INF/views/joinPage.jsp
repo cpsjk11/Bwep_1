@@ -82,7 +82,7 @@
               <span id="pw_checkBox" class="checkBox"></span>
             </div>
             <div class="u-form-group">
-              <label for="message-6797" class="u-label u-label-3">비밀번호 재확인</label>
+              <label for="repw" class="u-label u-label-3">비밀번호 재확인</label>
               <input type="password" placeholder="비밀번호를 재확인해주세요." rows="4" cols="50" id="message-6797" name="u_pws" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-13" required="required"/>
               <span id="repw_checkBox" class="checkBox"></span>
             </div>
@@ -102,7 +102,6 @@
               	onclick="send(this.form)"
                class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-12 u-custom-font u-hover-custom-color-19 u-radius-50 u-text-body-alt-color u-btn-1">회원가입<br>
               </a>
-              <input type="submit" value="submit" class="u-form-control-hidden" onclick="javascript:location.href='membership.my'">
             </div>
             <input type="hidden" value="" name="recaptchaResponse">
           </form>
@@ -193,7 +192,7 @@
 		
 		$("#s_pw").bind("keyup",function(){
 			var pw = $("#s_pw").val();
-			var repw = $("#message-6797").val();
+			var repw = $("#repw").val();
 			console.log(pw);
 			if(pw.trim().length > 0){
 				$.ajax({
@@ -224,9 +223,9 @@
 		});
 		
     // 비밀번호 재확인 확인
-	$("#message-6797").bind("keyup",function(){
+	$("#repw").bind("keyup",function(){
 		var pw = $("#s_pw").val();
-		var repw = $("#message-6797").val();
+		var repw = $("#repw").val();
 		// 비교해서 서로의 값이 같다면 일치라는 문장을 넣어주자!
 		if(repw == pw){
 			$("#repw_checkBox").html("비밀번호가 일치합니다.").css("color","#12b886");
@@ -278,21 +277,20 @@
 			$("#s_pw").focus();
 			return;
 		}
-		if($("#message-6797").val().trim().length < 1){
+		if($("#repw").val().trim().length < 1){
 			alert("비밀번호재확인을 입력해주세요");
-			$("#message-6797").val("");
-			$("#message-6797").focus();
+			$("#repw").val("");
+			$("#repw").focus();
 			return;
 		}
-		if($("#m_gender").val() == 1 ){
+		if($("#m_gender").val().trim().length < 1 ){
 			alert("성별을 선택해주세요");
 			return;
 		}
 		
 		
-		alert("가입성공!!");
 		// 회원가입!!
-		frm.submit();
+		document.forms[0].submit();
 	}
     </script>
   </body>
