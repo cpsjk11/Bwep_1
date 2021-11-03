@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import bwep.action.BmiCheck;
+import bwep.dao.BmiDAO;
 import bwep.dao.ReDAO;
 import bwep.vo.BmiVO;
 import bwep.vo.ReVO;
@@ -14,6 +15,9 @@ public class BmiController {
 
 	@Autowired
 	private ReDAO r_dao;
+	
+	@Autowired
+	private BmiDAO b_dao;
 	
 	// 사용자가 입력한 나이 키 몸무게를 기반으로 bmi수치를 계산하는 기능!
 	public double bmiCheck(BmiVO bvo) {
@@ -26,6 +30,9 @@ public class BmiController {
 		vo.setR_result(bmi);
 		vo.setM_nick(bvo.getM_nick());
 		r_dao.resultAdd(vo);
+		
+		// 사용자가 입력한 값을 DB에 저장!!
+		b_dao.addBmi(bvo);
 		
 		return bmi;
 	}
