@@ -36,79 +36,28 @@
         <p class="u-large-text u-text u-text-grey-50 u-text-variant u-text-2">건강한 체중, 제대로 알기</p>
         <div class="u-container-style u-group u-palette-1-dark-3 u-group-1">
           <div class="u-container-layout u-container-layout-1">
-          
-          <form action="bmi.my">
-          	<label>몸무게</label>
-          	<input name="b_kg"/>
-          	<label>키</label>
-          	<input name="b_cm"/>
-          	<input type="hidden" name="m_nick" value="${sessionScope.log }">
-          	<button type="submit">보내기</button>
-          </form>
-          
 			<fieldset>
 	                 <legend>BMI검색</legend>
 	                 <div class="bmi-search">
-	                     <div class="col-3">
-	                         <h3>성별정보</h3>
-	                         <dl>
-	                             <dt>
-	                                 <label for="searchSexFlagM">성별</label>
-	                             </dt>
-	                             <dd>
-	                                 <div class="btn-group">
-	                                     <label for="searchSexFlagM" class="btn active">
-	                                         <input type="radio" title="성별" name="searchSexFlag" id="searchSexFlagM" checked="">
-	                                         남자</label>
-	                                     <label for="searchSexFlagF" class="btn">
-	                                         <input type="radio" title="성별" name="searchSexFlag" id="searchSexFlagF">
-	                                         여자</label>
-	                                 </div>
-	                             </dd>
-	                         </dl>
-	                     </div>
-	                     <div class="col-3">
-	                         <h3>신체정보</h3>
-	                         <dl>
-	                             <dt>
-	                                 <label for="searchHeight">키(cm)</label>
-	                             </dt>
-	                             <dd>
-	                                 <input type="text" name="searchHeight" size="10" maxlength="5" value="" id="searchHeight" title="키" style="ime-mode:disabled;" onkeypress="return fn_onlyNumber();">
-	                             </dd>
-	                             <dt>
-	                                 <label for="searchWeight">몸무게(kg)</label>
-	                             </dt>
-	                             <dd>
-	                                 <input type="text" name="searchWeight" size="10" maxlength="5" value="" id="searchWeight" title="몸무게" style="ime-mode:disabled;" onkeypress="return fn_onlyNumber();">
-	                             </dd>
-	                             <dt>
-	                                 <label for="searchAge">나이(세)</label>
-	                             </dt>
-	                             <dd>
-	                                 <input type="text" name="searchAge" size="7" maxlength="5" value="" id="searchAge" title="나이" style="ime-mode:disabled;" onkeypress="return fn_onlyNumber();">
-	                             </dd>
-	                         </dl>
-	                     </div>
-	                     <div class="col-3">
-	                         <h3>비만도결과</h3>
-	                         <dl>
-	                             <dt>
-	                                 <label for="bmi">체질량지수</label>
-	                             </dt>
-	                             <dd>
-	                                 <input type="text" name="bmi" size="25" maxlength="100" value="" id="bmi" title="체질량지수를 입력해주세요" readonly="">
-	                             </dd>
-	                             <dd class="ddfull">
-	                                 <input type="text" name="bmiTxt" size="25" maxlength="100" value="" id="bmiTxt" title="검색결과를 입력해주세요" readonly="">
-	                             </dd>
-	                             <dd class="ddfull">
-	                                 <a href="javascript:;" class="btn btn-default btn-block" onclick="javascript:fn_reset();">초기화</a>
-	                             </dd>
-	                         </dl>
-	                     </div>
+	                      <form action="bmi.my">
+				          	<label>몸무게</label><input name="b_kg"/><br/>
+				          	<label>키</label><input name="b_cm"/><br/>
+				          	<input type="hidden" name="m_nick" value="${sessionScope.log }">
+				          	<button type="submit">보내기</button>
+				          </form>
+				          <form action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px;" source="custom">
+				            <div class="u-form-group u-form-name">
+				              <input type="text" placeholder="몸무게를 입력해주세요!" id="name-ef64" name="b_kg" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
+				            </div>
+				            <div class="u-form-email u-form-group">
+				              <input type="email" placeholder="키를 입력해주세요!" id="email-ef64" name="b_cm" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
+				            </div>
+				            <div class="u-form-group u-form-submit">
+				              	<button type="submit">보내기</button>
+				            </div>
+				            <input type="hidden" name="m_nick" value="${sessionScope.log }">
+				          </form>
 	                 </div>
-	                 <a href="javascript:fn_calBMI();" class="btn btn-lightgray btn-block" role="button">계산하기</a>
 	             </fieldset>
             
           </div>
