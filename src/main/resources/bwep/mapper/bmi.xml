@@ -6,7 +6,7 @@
 
 <!-- 사용자의 정보를 받아 DB 에 저장하는 기능!! -->
 <insert id="addBmi" parameterType="bwep.vo.BmiVO">
-	INSET INTO bmi_t (m_nick, b_kg, b_cm, b_age)
+	INSERT INTO bmi_t (m_nick, b_kg, b_cm, b_age)
 	VALUES (#{m_nick}, #{b_kg}, #{b_cm}, #{b_age})
 </insert>
 

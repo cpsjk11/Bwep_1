@@ -30,9 +30,10 @@ public class BmiController {
 		double bmi = BmiCheck.Calculation(bvo.getB_cm(), bvo.getB_kg());
 
 		// 계산을 완료하면 bmi결과와 횟수를 DB 에 저장하자!!
-		ReVO vo = new ReVO();
-		vo.setR_result(bmi);
-		vo.setM_nick(bvo.getM_nick());
+		/*
+		 * ReVO vo = new ReVO(); vo.setR_result(bmi); vo.setM_nick(bvo.getM_nick());
+		 * r_dao.resultAdd(vo);
+		 */
 		
 		bvo.setB_age(20);
 		
@@ -40,7 +41,6 @@ public class BmiController {
 		 "b_age:"+bvo.getB_age()+"b_kg:"+bvo.getB_kg() +"b_cm"+bvo.getB_cm());
 		 
 		b_dao.addBmi(bvo);
-		r_dao.resultAdd(vo);
 		
 		// 사용자가 입력한 값을 DB에 저장!!
 		
