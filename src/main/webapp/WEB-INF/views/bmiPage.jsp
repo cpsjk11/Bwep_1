@@ -10,8 +10,9 @@
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Page 1</title>
 	<link rel="stylesheet" href="resources/css/chart.css" media="screen">
-	<link rel="stylesheet" href="resources/css/bmiPage.css" media="screen">
 	<link rel="stylesheet" href="resources/css/nicepage.css" media="screen">
+	<link rel="stylesheet" href="resources/css/bmipage.css" media="screen">
+	
     <script class="u-script" type="text/javascript" src="resources/js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="resources/js/nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.29.1, nicepage.com">
@@ -30,42 +31,49 @@
   <body class="u-body">
          <jsp:include page="nav.jsp"/>
       <section class="u-clearfix u-section-1" id="sec-0a6a">
-        <%--*************bmi 계산 폼 ******************** 히든으로 닉보내야함 --%>
       <div class="u-clearfix u-sheet u-sheet-1">
         <h3 class="u-text u-text-1">BMI계산기</h3>
         <p class="u-large-text u-text u-text-grey-50 u-text-variant u-text-2">건강한 체중, 제대로 알기</p>
         <div class="u-container-style u-group u-palette-1-dark-3 u-group-1">
-          <div class="u-container-layout u-container-layout-1">
-			<fieldset>
-	                 <legend>BMI검색</legend>
-	                 <div class="bmi-search">
-	                      <form action="bmi.my">
-				          	<label>몸무게</label><input name="b_kg"/><br/>
-				          	<label>키</label><input name="b_cm"/><br/>
-				          	<input type="hidden" name="m_nick" value="${sessionScope.log }">
-				          	<button type="submit">보내기</button>
-				          </form>
-				          <form action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px;" source="custom">
-				            <div class="u-form-group u-form-name">
-				              <input type="text" placeholder="몸무게를 입력해주세요!" id="name-ef64" name="b_kg" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
-				            </div>
-				            <div class="u-form-email u-form-group">
-				              <input type="email" placeholder="키를 입력해주세요!" id="email-ef64" name="b_cm" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
-				            </div>
-				            <div class="u-form-group u-form-submit">
-				              	<button type="submit">보내기</button>
-				            </div>
-				            <input type="hidden" name="m_nick" value="${sessionScope.log }">
-				          </form>
-	                 </div>
-	             </fieldset>
-            
+          <div class="u-container-layout u-container-layout-1" style="padding: 15px;">
+        <%--*************bmi 계산 폼 ******************** 히든으로 닉보내야함 --%>
+        	<fieldset style="width: 100%;margin: 0 auto; " >
+        		<legend style="font-size: 16px; font-weight: 300px;">bmi계산하기</legend>
+	                <div class="bmi-search" style="text-align: center; margin: 0 auto; padding: 15px;">
+			          <form action="bmi.my" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px;">
+			            <div class="u-form-group u-form-name" style="width: 40%;">
+			              <input placeholder="몸무게를 입력해주세요!" id="b_kg" name="b_kg" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" >
+			            </div>
+			            <div class="u-form-email u-form-group" style="width: 40%;">
+			              <input placeholder="키를 입력해주세요!" id="b_cm" name="b_cm" class="u-border-1 u-border-grey-30 u-input u-input-rectangle">
+			            </div>
+			            <input type="hidden" name="m_nick" value="${sessionScope.log }">
+			          </form>
+			            <div style="width: 100px; height: 45px; display:inline-block;">
+			              	<button type="submit" id="res_bt" style="width: 100%; height: 100%; font-size: 13px; color: black;
+			              			border: 1px solid #efefef; border-radius: 35px">계산하기</button>
+			            </div>
+	                </div>
+        	</fieldset>
+      <%-- **************************************계산폼끝 --%>
           </div>
         </div>
       </div>
-      <%-- **************************************계산폼끝 --%>
     </section>
-    <section class="u-section-1" id="ch">
+    <div style="margin: 80px 15px 40px; width: 100%; display: inline-block;">
+    	<div style="width: 60; text-align: center; ">
+			<span style="color: #008f7a; font-size: 3em; font-weight: 600;">${sessionScope.log }</span><br/><br/>
+			<span style="font-size: 2.2em; font-weight: 600;">bmi지수 : 계산하기를 누르는 순간!~😀😀${sessionScope.bmi }"</span><br/><br/><br/>
+    	</div>
+	</div>
+    
+    
+    <section class="u-section-1" id="ch" style="margin-top: 50px; ">
+    	<div style="width:100%; display: inline-block;">
+			<div style="text-align: center;">
+			<span style="color:#008f7a; font-size: 1.6em; font-weight: 600;">그래프로 확인하기</span><br/><br/><br/>
+			</div>
+    	</div>
       <div style="width: 55%; margin: 0 auto; margin-bottom: 300px;">
       	<div id="chart" style="width: 100%">
 		  <canvas id="myChart"></canvas>

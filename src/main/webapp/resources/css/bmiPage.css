@@ -247,9 +247,16 @@ dl {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+#res_bt{
+		width: 10%;
+		height: 3%;
+		border: 1px solid #ababab;
+		border-radius: 30px;	
+}
 
 @media (max-width: 1199px) {
   .u-section-2 .u-sheet-1 {
     min-height: 547px;
   }
+}
 }
