@@ -18,7 +18,7 @@
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme:400">
     <script type="application/ld+json">{
-		"@context": "http://schema.org",
+		"@context": "http://schema.org", 
 		"@type": "Organization",
 		"name": "",
 		"logo": "images/default-logo.png"

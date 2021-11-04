@@ -33,10 +33,16 @@ public class BmiController {
 		ReVO vo = new ReVO();
 		vo.setR_result(bmi);
 		vo.setM_nick(bvo.getM_nick());
+		
+		bvo.setB_age(20);
+		
+		 System.out.println("m_nick:"+bvo.getM_nick()+
+		 "b_age:"+bvo.getB_age()+"b_kg:"+bvo.getB_kg() +"b_cm"+bvo.getB_cm());
+		 
+		b_dao.addBmi(bvo);
 		r_dao.resultAdd(vo);
 		
 		// 사용자가 입력한 값을 DB에 저장!!
-		b_dao.addBmi(bvo);
 		
 		mv.addObject("bmi", bmi);
 		mv.setViewName("bmiPage");
