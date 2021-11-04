@@ -6,7 +6,7 @@
 
 <!-- bmi 값이 나올때 DB에 저장하는 문장! -->
 <insert id="add" parameterType="bwep.vo.ReVO">
-	INSERT INTO (m_nick,r_result,r_num)
+	INSERT INTO result_b (m_nick,r_result,r_num)
 	VALUES (#{m_nick},#{r_result},#{r_num})
 </insert>
 

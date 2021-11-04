@@ -36,6 +36,16 @@
         <p class="u-large-text u-text u-text-grey-50 u-text-variant u-text-2">건강한 체중, 제대로 알기</p>
         <div class="u-container-style u-group u-palette-1-dark-3 u-group-1">
           <div class="u-container-layout u-container-layout-1">
+          
+          <form action="bmi.my">
+          	<label>몸무게</label>
+          	<input name="b_kg"/>
+          	<label>키</label>
+          	<input name="b_cm"/>
+          	<input type="hidden" name="m_nick" value="${sessionScope.log }">
+          	<button type="submit">보내기</button>
+          </form>
+          
 			<fieldset>
 	                 <legend>BMI검색</legend>
 	                 <div class="bmi-search">
@@ -160,7 +170,12 @@ referrerpolicy="no-referrer">
                 borderColor: "#fff",
                 pointBackgroundColor: "rgb(189,195,199)",
                 tension: 0.1,
-			},
+			},{ 
+		        data: [28.2,21.29],
+		        label: "Asia",
+		        borderColor: "#8e5ea2",
+		        fill: false
+		      }
 		],
 	};
 	

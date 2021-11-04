@@ -50,14 +50,14 @@
 	            </h3>
             <%-- ************** 로그인 폼 ***************** --%>
             <div class="u-form u-login-control u-form-1">
-              <form action="login.my" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;">
+              <form action="login.my" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;"  onkeyup="if(window.event.keyCode==13){login()}">
                 <div class="u-form-group u-form-name">
                   <label for="username-708d" class="u-form-control-hidden u-label"></label>
                   <input type="text" placeholder="닉네임을 입력해주세요." id="nick" name="username" class="u-grey-5 u-input u-input-rectangle" required="">
                 </div>
                 <div class="u-form-group u-form-password">
                   <label for="password-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="password" placeholder="비밀번호를 입력해주세요." id="pwd" name="password" class="u-grey-5 u-input u-input-rectangle" onkeyup="enter()">
+                  <input type="password" placeholder="비밀번호를 입력해주세요." id="pwd" name="password" class="u-grey-5 u-input u-input-rectangle">
                 </div>
                 <div class="u-form-checkbox u-form-group u-form-group-3">
                   <input type="checkbox" id="checkbox-708d" name="remember" value="On">
@@ -102,6 +102,7 @@
 	function enter(){
 		if (window.event.keyCode == 13) {
 	    	// 엔터키가 눌렸을 때
+	    	login();
 	    	return;
 	    }
 	}
@@ -130,7 +131,7 @@
 			$("#pwd").focus();
 			return;
 		}
-		
+		alert("ㅎㅇ");
 		var param = "m_nick="+encodeURIComponent(id)+"&m_pw="+encodeURIComponent(pwd);
 		$.ajax({
 			url:"login.my",
