@@ -28,24 +28,21 @@ public class BmiController {
 		
 		// bmi 계산하는 객체 생성!!
 		double bmi = BmiCheck.Calculation(bvo.getB_cm(), bvo.getB_kg());
-
+		ReVO vo = new ReVO(); 
+		 vo.setR_result(bmi); 
+		 vo.setM_nick(bvo.getM_nick());
+		 r_dao.resultAdd(vo);
+		
+		
 		// 계산을 완료하면 bmi결과와 횟수를 DB 에 저장하자!!
-		/*
-		 * ReVO vo = new ReVO(); vo.setR_result(bmi); vo.setM_nick(bvo.getM_nick());
-		 * r_dao.resultAdd(vo);
-		 */
-		
-		bvo.setB_age(20);
-		
-		 System.out.println("m_nick:"+bvo.getM_nick()+
-		 "b_age:"+bvo.getB_age()+"b_kg:"+bvo.getB_kg() +"b_cm"+bvo.getB_cm());
-		 
 		b_dao.addBmi(bvo);
 		
 		// 사용자가 입력한 값을 DB에 저장!!
 		
 		mv.addObject("bmi", bmi);
 		mv.setViewName("bmiPage");
+		
+		
 		
 		return mv;
 	}
@@ -54,4 +51,6 @@ public class BmiController {
 	public String goBmi() {
 		return "bmiPage";
 	}
+	
+	
 }
