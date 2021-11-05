@@ -9,6 +9,17 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Page 1</title>
+    <style type="text/css">
+    .img{
+    	transform:rotate(90deg);
+	   -moz-transform: scaleX(-1); 
+	     -o-transform: scaleX(-1); 
+	-webkit-transform: scaleX(-1); 
+	        transform: scaleX(-1);   
+	       filter: FlipH;
+	  -ms-filter: "FlipH";
+    }
+    </style>
 	<link rel="stylesheet" href="resources/css/chart.css" media="screen">
 	<link rel="stylesheet" href="resources/css/nicepage.css" media="screen">
 	<link rel="stylesheet" href="resources/css/bmipage.css" media="screen">
@@ -61,9 +72,12 @@
       </div>
     </section>
     <div style="margin: 80px 15px 40px; width: 100%; display: inline-block;">
-    	<div style="width: 60; text-align: center; ">
-			<span style="color: #008f7a; font-size: 3em; font-weight: 600;">${sessionScope.log }</span><br/><br/>
-			<span style="font-size: 2.2em; font-weight: 600;">bmi지수 : 계산하기를 누르는 순간!~😀😀${sessionScope.bmi }"</span><br/><br/><br/>
+    	<div style="width: 100%; text-align: center; ">
+			<span style="color: #008f7a; font-size: 3em; font-weight: 600;">${sessionScope.log }</span><br/>
+			<span style="font-size: 2.2em; font-weight: 600; margin-right: 50px;">bmi지수 : 계산하기를 누르는 순간!~😀😀${sessionScope.bmi }"</span>
+			<div id="img_box" style="display: inline-block ; width: 80px; height: 80px;">
+				<img class="img" alt="화살표 이미지" src="resources/images/ta2.png" style="width: 100%; height: 100%;">
+			</div>
     	</div>
 	</div>
     
