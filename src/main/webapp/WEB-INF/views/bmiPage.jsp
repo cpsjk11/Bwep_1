@@ -51,7 +51,7 @@
 			          </form>
 			            <div style="width: 100px; height: 45px; display:inline-block;">
 			              	<button type="submit" id="res_bt" style="width: 100%; height: 100%; font-size: 13px; color: black;
-			              			border: 1px solid #efefef; border-radius: 35px">계산하기</button>
+			              			border: 1px solid #efefef; border-radius: 35px" onclick="send()">계산하기</button>
 			            </div>
 	                </div>
         	</fieldset>
@@ -102,6 +102,12 @@ crossorigin="anonymous"
 referrerpolicy="no-referrer">
 </script>
     <script>
+    
+    function send(){
+    	document.forms[0].submit();
+    }
+    
+    
   //차트가져오기
 	const ctx = document.getElementById("myChart").getContext("2d");
 

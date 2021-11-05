@@ -10,4 +10,5 @@
 	VALUES (#{m_nick}, #{b_kg}, #{b_cm}, #{b_age})
 </insert>
 
+
 </mapper>

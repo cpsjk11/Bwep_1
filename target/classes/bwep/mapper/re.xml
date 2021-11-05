@@ -11,8 +11,13 @@
 </insert>
 
 <!-- 사용자가 지금 몇번째 bmi를 결과를 받는지 횟수 구하기 -->
-<select id="resultNum" parameterType="String" resultType="int">
+<select id="resultNum" parameterType="String" resultType="bwep.vo.ReVO">
+	select * from result_b
+	where m_nick = #{no}
+</select>
+
+<select id="Num" parameterType="String" resultType="int">
 	select COUNT(*) from result_b
-	where m_nick = '민우'
+	where m_nick = #{no}
 </select>
 </mapper>
