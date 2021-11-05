@@ -14,6 +14,7 @@
 <select id="resultNum" parameterType="String" resultType="bwep.vo.ReVO">
 	select * from result_b
 	where m_nick = #{no}
+	ORDER BY r_num ASC
 </select>
 
 <select id="Num" parameterType="String" resultType="int">
