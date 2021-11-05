@@ -22,7 +22,7 @@
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="javascript:location.href='membership.my'" style="padding: 10px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="javascript:location.href='joinPage.my'" style="padding: 10px;">JoinPage</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="javascript:location.href='bmiPage.my'" style="padding: 10px;">bmi</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="javascript:location.href='bmiPage.my?m_nick=${sessionScope.log }'" style="padding: 10px;">bmi</a>
 </li></ul>
               </div>
             </div>

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,17 +39,16 @@ public class BmiController {
 		 vo.setR_result(bmi); 
 		 vo.setM_nick(bvo.getM_nick());
 		 r_dao.resultAdd(vo);
-		 
-		 ReVO[] rvo = r_dao.resultNum(bvo.getM_nick());
 		
-		 ChartResult result = new ChartResult();
-		 
-		 String chart = result.getChart(rvo);
-		System.out.println(chart);
+		//System.out.println(chart);
 		// 계산을 완료하면 bmi결과와 횟수를 DB 에 저장하자!!
 		b_dao.addBmi(bvo);
+		ReVO[] rvo = r_dao.resultNum(bvo.getM_nick());
 		
+		ChartResult result = new ChartResult();
+		String chart = result.getChart(rvo);
 		double bmis = result.getLastBmiresult(rvo);
+		
 		session.removeAttribute("bmi");
 		session.setAttribute("bmi", bmis);
 		
@@ -63,7 +63,11 @@ public class BmiController {
 	}
 	
 	@RequestMapping("bmiPage.my")
-	public String goBmi() {
+	public String goBmi(Model m, String m_nick) {
+		ReVO[] rvo = r_dao.resultNum(m_nick);
+		 ChartResult result = new ChartResult();
+		 String chart = result.getChart(rvo);
+		 m.addAttribute("chart", chart);
 		return "bmiPage";
 	}
 	
