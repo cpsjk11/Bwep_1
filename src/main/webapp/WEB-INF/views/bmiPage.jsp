@@ -148,7 +148,7 @@ referrerpolicy="no-referrer">
                 pointBackgroundColor: "rgb(189,195,199)",
                 tension: 0.1,
 			},{ 
-		        data: [28.2,21.29],
+		        data: /* [28.2,21.29] */${chart},
 		        label: "Asia",
 		        borderColor: "#8e5ea2",
 		        fill: false
