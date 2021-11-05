@@ -11,14 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import bwep.action.ChartResult;
 import bwep.dao.MemDAO;
+import bwep.dao.ReDAO;
 import bwep.vo.MemVO;
+import bwep.vo.ReVO;
 
 @Controller
 public class LoginController {
 
    @Autowired
    private MemDAO m_dao;
+   
+   @Autowired
+   private ReDAO r_dao;
    
    @Autowired
    private HttpSession session;
@@ -35,6 +41,17 @@ public class LoginController {
          // 로그인 성공시!!
          map.put("success", m_nick);
          map.put("value", "1");
+         
+         // 사용자의 수치를 보여주자!!
+         ReVO[] rvo = r_dao.resultNum(m_nick);
+         
+         ChartResult result = new ChartResult();
+         
+         double bmi = result.getLastBmiresult(rvo);
+         System.out.println(bmi);
+         
+         session.setAttribute("bmi", bmi);
+         
          // 세션에 log 라는 이름으로 닉네임을 저장하자!!
          session.setAttribute("log", m_nick);
       }else {
