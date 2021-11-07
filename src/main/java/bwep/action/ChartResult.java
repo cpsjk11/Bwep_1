@@ -6,6 +6,11 @@ public class ChartResult {
 
 	// 사용자의 수치를 받아서 반복문으로 그래프로 표현하자!
 	public String getChart(ReVO[] rvo) {
+		
+		if(rvo == null)
+			return "[]";
+		
+		
 		StringBuffer sb = new StringBuffer("[");
 		for(int i = 0; i<rvo.length;i++) {
 			sb.append(rvo[i].getR_result());

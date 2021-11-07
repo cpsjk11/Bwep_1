@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import bwep.action.ChartResult;
+import bwep.dao.InbodyDAO;
 import bwep.dao.MemDAO;
 import bwep.dao.ReDAO;
 import bwep.vo.MemVO;
 import bwep.vo.ReVO;
+import secure.sha256.SecureUtil;
 
 @Controller
 public class LoginController {
@@ -27,6 +29,9 @@ public class LoginController {
    private ReDAO r_dao;
    
    @Autowired
+   private InbodyDAO i_dao;
+   
+   @Autowired
    private HttpSession session;
    
    // 로그인 기능 비 동기식!!!
@@ -36,7 +41,11 @@ public class LoginController {
       // 반환객체 생성
       Map<String, String> map = new HashMap<String, String>();
       
-      MemVO mvo = m_dao.login(m_nick, m_pw);
+      String protein = i_dao.in_search(m_nick);
+      
+      String res = SecureUtil.getEncrypt(m_pw, protein);
+      
+      MemVO mvo = m_dao.login(m_nick, res);
       if(mvo != null) {
          // 로그인 성공시!!
          map.put("success", m_nick);
