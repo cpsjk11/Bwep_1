@@ -19,6 +19,7 @@
 	       filter: FlipH;
 	  -ms-filter: "FlipH";
     }
+   
     </style>
 	<link rel="stylesheet" href="resources/css/chart.css" media="screen">
 	<link rel="stylesheet" href="resources/css/nicepage.css" media="screen">
@@ -40,29 +41,29 @@
     <meta property="og:type" content="website">   
   </head>
   <body class="u-body">
-         <jsp:include page="nav.jsp"/>
-      <section class="u-clearfix u-section-1" id="sec-0a6a">
+         <jsp:include page="nav.jsp"/><br/><br/>
+      <section class="u-clearfix u-section-1" id="sec-0a6a" style="padding: 15px;">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-text u-text-1">BMI계산기</h3>
+        <span style="color: #008f7a; font-size: 2.5em; font-weight: 600; margin-top: 30px;">BMI계산기</span><br/>
         <p class="u-large-text u-text u-text-grey-50 u-text-variant u-text-2">건강한 체중, 제대로 알기</p>
-        <div class="u-container-style u-group u-palette-1-dark-3 u-group-1">
-          <div class="u-container-layout u-container-layout-1" style="padding: 15px;">
+        <div class="u-container-style u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1" style="padding: 15px; width: 50%;">
         <%--*************bmi 계산 폼 ******************** 히든으로 닉보내야함 --%>
-        	<fieldset style="width: 100%;margin: 0 auto; " >
+        	<fieldset style="width: 100%; margin: 0 auto; " >
         		<legend style="font-size: 16px; font-weight: 300px;">bmi계산하기</legend>
 	                <div class="bmi-search" style="text-align: center; margin: 0 auto; padding: 15px;">
 			          <form action="bmi.my" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px;">
 			            <div class="u-form-group u-form-name" style="width: 40%;">
-			              <input placeholder="몸무게를 입력해주세요!" id="b_kg" name="b_kg" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" >
+			              <input type="number" placeholder="몸무게를 입력해주세요!" id="b_kg" name="b_kg" class="u-border-1 u-border-grey-30 u-input " >
 			            </div>
 			            <div class="u-form-email u-form-group" style="width: 40%;">
-			              <input placeholder="키를 입력해주세요!" id="b_cm" name="b_cm" class="u-border-1 u-border-grey-30 u-input u-input-rectangle">
+			              <input type="number" placeholder="키를 입력해주세요!" id="b_cm" name="b_cm" class="u-border-1 u-border-grey-30 u-input ">
 			            </div>
 			            <input type="hidden" name="m_nick" value="${sessionScope.log }">
-			          </form>
+			          </form><br/><br/>
 			            <div style="width: 100px; height: 45px; display:inline-block;">
-			              	<button type="submit" id="res_bt" style="width: 100%; height: 100%; font-size: 13px; color: black;
-			              			border: 1px solid #efefef; border-radius: 35px" onclick="send()">계산하기</button>
+			              	<button class="u-hover-custom-color-18" type="submit" id="res_bt" style="width: 100%; height: 100%; font-size: 13px; color: black;
+			              			border: 1px solid #efefef; border-radius: 35px;" onclick="send()">계산하기</button>
 			            </div>
 	                </div>
         	</fieldset>
@@ -74,22 +75,20 @@
     <div style="margin: 80px 15px 40px; width: 100%; display: inline-block;">
     	<div style="width: 100%; text-align: center; ">
 			<span style="color: #008f7a; font-size: 3em; font-weight: 600;">${sessionScope.log }</span><br/>
-			<span style="font-size: 2.2em; font-weight: 600; margin-right: 50px;">bmi지수 :${sessionScope.bmi }</span>
+			<span style="font-size: 1.7em; font-weight: 600;">bmi지수 : </span>
+			<span style="font-size: 2em; font-weight: 600; color: #845EC2">${sessionScope.bmi }</span>
     	</div>
 	</div>
     
     
-    <section class="u-section-1" id="ch" style="margin-top: 50px; ">
-    	<div style="width:100%; display: inline-block;">
-			<div style="text-align: center;">
-				<span style="color:#008f7a; font-size: 1.6em; font-weight: 600;">그래프로 확인하기</span><br/><br/><br/>
-			</div>
-			<div id="img_box" style="display: inline-block ; width: 80px; height: 80px;">
-				<img class="img" alt="화살표 이미지" src="resources/images/ta2.png" style="width: 100%; height: 100%;" onclick="viewchart()">
-			</div>
+    <section class="u-section-1" id="ch" style="margin-top: 50px; text-align: center;">
+    	<div style=" display: inline-block; text-align: center; margin: auto; padding: 15px; width: 50%; justify-content:center;">
+			<span style="color:#008f7a; font-size: 1.6em; font-weight: 600; margin-right: 40px;">그래프로 확인하기</span>
+				<img class="img" alt="화살표 이미지" src="resources/images/ta2.png" 
+				style="display: inline-block ;
+				 width: 7%;" onclick="viewchart()">
     	</div>
       <div style="width: 55%; margin: 0 auto; margin-bottom: 300px;">
-      <button type="button" onclick="viewchart()">보기</button>
       	<div id="chart" style="width: 100%; display: none;">
 		  <canvas id="myChart"></canvas>
 		</div>
@@ -116,6 +115,7 @@ integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf
 crossorigin="anonymous" 
 referrerpolicy="no-referrer">
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
     
     function viewchart(){
@@ -123,6 +123,21 @@ referrerpolicy="no-referrer">
     }
     
     function send(){
+    	var kg = $("#b_kg").val();
+		var cm = $("#b_cm").val();
+    	
+    	if(kg.trim().length <= 0){
+			alert("몸무게를 입력해주세요.");
+			$("#b_kg").val("");
+			$("#b_kg").focus();
+			return;
+		}
+    	if(cm.trim().length <= 0){
+			alert("키를입력해주세요.");
+			$("#b_cm").val("");
+			$("#b_cm").focus();
+			return;
+		}
     	document.forms[0].submit();
     }
     
