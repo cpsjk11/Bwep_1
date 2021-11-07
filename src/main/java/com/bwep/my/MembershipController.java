@@ -11,14 +11,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import bwep.action.PwCheck;
+import bwep.dao.InbodyDAO;
 import bwep.dao.MemDAO;
 import bwep.vo.MemVO;
+import secure.sha256.SecureUtil;
 
 @Controller
 public class MembershipController {
 
 	@Autowired
 	private MemDAO m_dao;
+	
+	@Autowired
+	private InbodyDAO i_dao;
 	
 	@RequestMapping(value = "/memberships.my", method = RequestMethod.POST)
 	@ResponseBody
@@ -59,11 +64,17 @@ public class MembershipController {
 	public ModelAndView userAdd(MemVO vo) {
 		ModelAndView mv = new ModelAndView();
 		
+		// 비밀번호 암호화 시작!
+		String protein = SecureUtil.generateSalt();
+		
+		vo.setM_pw(SecureUtil.getEncrypt(vo.getM_pw(), protein));
+		
 		int cnt = m_dao.userAdd(vo);
 		
-		if(cnt > 0)
+		if(cnt > 0) {
 			mv.setViewName("membership"); // 회원가입 성공시 원래 기존의 페이지 이동!!
-		else
+			i_dao.in_add(vo.getM_nick(), protein);
+		}else
 			mv.setViewName("redirect:/joinPage.my");
 		
 		return mv;

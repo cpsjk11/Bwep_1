@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="in">
+
+<!-- 저장하는 기능 -->
+<insert id="in_add" parameterType="Map">
+	INSERT INTO inbody_t (m_nick,i_protein)
+	VALUES (#{m_nick},#{i_protein})
+</insert>
+
+<!-- 검색하는 기능 -->
+<select id="in_search" parameterType="String" resultType="String">
+	SELECT i_protein FROM inbody_t
+	WHERE m_nick = #{no}
+</select>
+</mapper>
