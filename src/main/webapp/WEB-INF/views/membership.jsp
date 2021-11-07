@@ -33,7 +33,7 @@
 	        <%-- ************** 로그인 성공 시 ****************--%>
 	        <c:if test="${fn:length(sessionScope.log) > 0}">
 				<div id="login_sc" 
-				style="display: none; margin-top: 80px;
+				style="display: none; margin-top: 80px; 
 				margin-left: 45px;">
 					<span id="sc_text" class="u-custom-font u-text u-text-default u-text-1" style="color: #008f7a;">${sessionScope.log }</span>
 					<h3 class="u-custom-font u-text u-text-default u-text-2">반가워요!</h3><br/>
