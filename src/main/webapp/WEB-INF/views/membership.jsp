@@ -52,12 +52,12 @@
             <div class="u-form u-login-control u-form-1">
               <form action="login.my" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-35 u-form-vertical u-inner-form" source="custom" name="form-2" style="padding: 10px;"  onkeyup="if(window.event.keyCode==13){login()}">
                 <div class="u-form-group u-form-name">
-                  <label for="username-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="닉네임을 입력해주세요." id="nick" name="username" class="u-grey-5 u-input u-input-rectangle" required="">
+                  <label for="m_nick" class="u-form-control-hidden u-label"></label>
+                  <input type="text" placeholder="닉네임을 입력해주세요." id="m_nick" name="m_nick" class="u-grey-5 u-input u-input-rectangle" required="">
                 </div>
                 <div class="u-form-group u-form-password">
-                  <label for="password-708d" class="u-form-control-hidden u-label"></label>
-                  <input type="password" placeholder="비밀번호를 입력해주세요." id="pwd" name="password" class="u-grey-5 u-input u-input-rectangle">
+                  <label for="m_pwd" class="u-form-control-hidden u-label"></label>
+                  <input type="password" onkeyup="enter()" placeholder="비밀번호를 입력해주세요." id="m_pwd" name="m_pwd" class="u-grey-5 u-input u-input-rectangle">
                 </div>
                 <div class="u-form-checkbox u-form-group u-form-group-3">
                   <input type="checkbox" id="checkbox-708d" name="remember" value="On">
@@ -98,12 +98,17 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
+	document.addEventListener('keydown', function(event) {
+	  if (event.keyCode === 13) {
+		  login();
+	    event.preventDefault();
+	  };
+	}, true);
 
 	function enter(){
 		if (window.event.keyCode == 13) {
 	    	// 엔터키가 눌렸을 때
-	    	login();
-	    	return;
+	    	
 	    }
 	}
 
@@ -116,19 +121,19 @@
 	function login(){
 		
 		// 비동기식을 이용한 로그인!!
-		var id = $("#nick").val();
-		var pwd = $("#pwd").val();
+		var id = $("#m_nick").val();
+		var pwd = $("#m_pwd").val();
 		
 		if(id.trim().length <= 0){
 			alert("닉네임을 입력해주세요.");
-			$("#nick").val("");
-			$("#nick").focus();
+			$("#m_nick").val("");
+			$("#m_nick").focus();
 			return;
 		}
 		if(pwd.trim().length <= 0){
 			alert("비밀번호를 입력해주세요.");
-			$("#pwd").val("");
-			$("#pwd").focus();
+			$("#m_pwd").val("");
+			$("#m_pwd").focus();
 			return;
 		}
 		alert("ㅎㅇ");
@@ -146,8 +151,8 @@
 			}
 				if(data.value == 2){
 				alert(data.fail);
-				$("#nick").val(id);
-				$("#pwd").val("");
+				$("#m_nick").val(id);
+				$("#m_pwd").val("");
 				
 			}
 		}).fail(function(err){
