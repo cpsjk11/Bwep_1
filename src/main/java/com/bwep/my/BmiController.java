@@ -62,7 +62,7 @@ public class BmiController {
 		return mv;
 	}
 	
-	@RequestMapping("bmiPage.my")
+	@RequestMapping("/bmiPage.my")
 	public String goBmi(Model m, String m_nick) {
 		ReVO[] rvo = r_dao.resultNum(m_nick);
 		 ChartResult result = new ChartResult();

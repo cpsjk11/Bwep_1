@@ -74,10 +74,7 @@
     <div style="margin: 80px 15px 40px; width: 100%; display: inline-block;">
     	<div style="width: 100%; text-align: center; ">
 			<span style="color: #008f7a; font-size: 3em; font-weight: 600;">${sessionScope.log }</span><br/>
-			<span style="font-size: 2.2em; font-weight: 600; margin-right: 50px;">bmi지수 : 계산하기를 누르는 순간!~😀😀${sessionScope.bmi }"</span>
-			<div id="img_box" style="display: inline-block ; width: 80px; height: 80px;">
-				<img class="img" alt="화살표 이미지" src="resources/images/ta2.png" style="width: 100%; height: 100%;">
-			</div>
+			<span style="font-size: 2.2em; font-weight: 600; margin-right: 50px;">bmi지수 :${sessionScope.bmi }</span>
     	</div>
 	</div>
     
@@ -85,11 +82,15 @@
     <section class="u-section-1" id="ch" style="margin-top: 50px; ">
     	<div style="width:100%; display: inline-block;">
 			<div style="text-align: center;">
-			<span style="color:#008f7a; font-size: 1.6em; font-weight: 600;">그래프로 확인하기</span><br/><br/><br/>
+				<span style="color:#008f7a; font-size: 1.6em; font-weight: 600;">그래프로 확인하기</span><br/><br/><br/>
+			</div>
+			<div id="img_box" style="display: inline-block ; width: 80px; height: 80px;">
+				<img class="img" alt="화살표 이미지" src="resources/images/ta2.png" style="width: 100%; height: 100%;" onclick="viewchart()">
 			</div>
     	</div>
       <div style="width: 55%; margin: 0 auto; margin-bottom: 300px;">
-      	<div id="chart" style="width: 100%">
+      <button type="button" onclick="viewchart()">보기</button>
+      	<div id="chart" style="width: 100%; display: none;">
 		  <canvas id="myChart"></canvas>
 		</div>
 		<!-- <div id="chart">
@@ -116,6 +117,10 @@ crossorigin="anonymous"
 referrerpolicy="no-referrer">
 </script>
     <script>
+    
+    function viewchart(){
+    	$("#chart").slideToggle(1200);
+    }
     
     function send(){
     	document.forms[0].submit();
