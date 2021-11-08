@@ -10,11 +10,12 @@
 </defs></svg>
             </a>
           </div>
-          <div class="u-custom-menu u-nav-container">
+          <div class="u-custom-menu u-nav-container" style="display: inline-block;">
             <ul class="u-custom-font u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="javascript:location.href='membership.my'" style="padding: 10px;">Home</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="javascript:location.href='joinPage.my'" style="padding: 10px;">JoinPage</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-hover-palette-2-base u-text-white" href="javascript:location.href='bmiPage.my?m_nick=${sessionScope.log }'" style="padding: 10px;">bmi</a>
 </li></ul>
+			 
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">

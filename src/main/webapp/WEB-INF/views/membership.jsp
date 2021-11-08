@@ -12,6 +12,14 @@
     <meta name="page_type" content="np-template-header-footer-from-plugin">
 <meta charset="UTF-8">
 <title>Home</title>
+
+<style type="text/css">
+.st_bt:hover{
+	background-color: #423ba2 !important;
+}
+	
+</style>
+
 <link rel="stylesheet" href="resources/css/nicepage.css" media="screen">
 <link rel="stylesheet" href="resources/css/Home.css" media="screen">
     <script class="u-script" type="text/javascript" src="resources/js/jquery.js" defer=""></script>
@@ -35,10 +43,13 @@
 				<div id="login_sc" 
 				style="display: none; margin-top: 80px; 
 				margin-left: 45px;">
-					<span id="sc_text" class="u-custom-font u-text u-text-default u-text-1" style="color: #008f7a;">${sessionScope.log }</span>
+					<a id="sc_text" class="u-custom-font u-text u-text-default u-text-1"  style="color: #008f7a;">${sessionScope.log }</a>
 					<h3 class="u-custom-font u-text u-text-default u-text-2">반가워요!</h3><br/>
-					<h3 class="u-custom-font u-text u-text-default u-text-2">bmi지수 : ${sessionScope.bmi }</h3><br/><br/><br/>
-					<a href="bmiPage.my?m_nick=${sessionScope.log }" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50 u-btn-2">bmi검사하러가기</a>
+					<h3 class="u-custom-font u-text u-text-default u-text-2">bmi지수 : ${sessionScope.bmi }</h3><br/>
+					<div style="width: 100%; display:flex; justify-content: center;">
+						<a href="logout" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50" id="st_bt"style="margin-right:20px;">로그아웃</a>
+						<a href="bmiPage.my?m_nick=${sessionScope.log }" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-18 u-palette-2-base u-radius-50" style="background-color: #845EC2 !important;">bmi검사하러가기</a>
+					</div>
 				</div>
 			</c:if>
 				<%-- ************** 로그인 성공 시 끝****************--%>
