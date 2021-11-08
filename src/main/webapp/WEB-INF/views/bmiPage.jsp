@@ -210,6 +210,20 @@ referrerpolicy="no-referrer">
 		};
 	
 	const myChart = new Chart(ctx, config);
+	
+	function noEvent() {
+	    if (event.keyCode == 116) {
+	        event.keyCode= 2;
+	        return false;
+	    }
+	    else if(event.ctrlKey && (event.keyCode==78 || event.keyCode == 82))
+	    {
+	        return false;
+	    }
+	}
+	document.onkeydown = noEvent;
+	
+
 	/* // *****************************************************
 	//차트가져오기
 	const ctx2 = document.getElementById("myChart2").getContext("2d");
