@@ -47,7 +47,6 @@ public class BmiController {
 		
 		ChartResult result = new ChartResult();
 		String chart = result.getChart(rvo);
-		System.out.println(chart);
 		double bmis = result.getLastBmiresult(rvo);
 		String res = result.getList(rvo);
 		

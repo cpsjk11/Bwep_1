@@ -49,9 +49,10 @@ public class ChartResult {
 		
 		StringBuffer sb = new StringBuffer("[");
 		for(int i = 0; i<rvo.length;i++) {
-			sb.append(i+1);
+			sb.append("'"+(i+1)+"회차'");
 			if(i != rvo.length-1) 
 				sb.append(",");
+			
 		}
 		sb.append("]");
 		return sb.toString();
