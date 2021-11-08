@@ -47,13 +47,16 @@ public class BmiController {
 		
 		ChartResult result = new ChartResult();
 		String chart = result.getChart(rvo);
+		System.out.println(chart);
 		double bmis = result.getLastBmiresult(rvo);
+		String res = result.getList(rvo);
 		
 		session.removeAttribute("bmi");
 		session.setAttribute("bmi", bmis);
 		
 		// 사용자가 입력한 값을 DB에 저장!!
 		mv.addObject("chart", chart);
+		mv.addObject("num", res);
 		mv.addObject("bmi", bmi);
 		mv.setViewName("bmiPage");
 		
@@ -68,6 +71,8 @@ public class BmiController {
 		 ChartResult result = new ChartResult();
 		 String chart = result.getChart(rvo);
 		 m.addAttribute("chart", chart);
+		 String res = result.getList(rvo);
+		 m.addAttribute("num", res);
 		return "bmiPage";
 	}
 	

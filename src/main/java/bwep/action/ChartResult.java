@@ -40,4 +40,21 @@ public class ChartResult {
 		}
 		return bmi;
 	}
+	
+	// 차트의 총 길이를 반환하는 반복문
+	public String getList(ReVO[] rvo) {
+		if(rvo == null)
+			return "[]";
+		
+		
+		StringBuffer sb = new StringBuffer("[");
+		for(int i = 0; i<rvo.length;i++) {
+			sb.append(i+1);
+			if(i != rvo.length-1) 
+				sb.append(",");
+		}
+		sb.append("]");
+		return sb.toString();
+	}
+	
 }

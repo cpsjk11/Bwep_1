@@ -153,23 +153,23 @@ referrerpolicy="no-referrer">
 
 
 	//차트에 들어갈 변수생성
-	const labels = ["19~24세","25~29세","30~34세","35~39세","40~44세","45~49세","50~54세","55~59세","60~64세"];
+	const labels = ${num};
 	
 	const data = {
 			labels,
 			datasets: [
 				{
 				//여기서 labels배열에 담긴 순서대로 데이터가담긴다. 배열갯수를 맞춰야함
-				data: [23.3, 23.7, 24.9, 25.2, 24, 24.9, 24.5, 24.6, 24],
 				label: "연령별 bmi평균 지수",
 				fill: true,
-				backgroundColor: gradient,
+				backgroundColor: "black",
                 borderColor: "#fff",
                 pointBackgroundColor: "rgb(189,195,199)",
                 tension: 0.1,
 			},{ 
 		        data:${chart},
 		        label: "나의Bmi",
+		        backgroundColor: "#C2C3F2",
 		        borderColor: "#8e5ea2",
 		        fill: false
 		      }
@@ -177,7 +177,7 @@ referrerpolicy="no-referrer">
 	};
 	
 	const config = {
-			type: "line",
+			type: "bar",
 			data: data,
 			options: {
                 radius:5,

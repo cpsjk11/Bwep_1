@@ -12,7 +12,7 @@ public class BmiCheck {
 		double bmi = b_kg / (b_cm*b_cm);
 		
 		bmi = Math.round(bmi*100)/100.0; // 두번째 자리까지만 표현한다!!
-		
+		System.out.println(bmi);
 		return bmi;
 	}
 	
